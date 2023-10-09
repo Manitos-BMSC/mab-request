@@ -1,0 +1,46 @@
+POST http://localhost:8010/api/v1/patient
+Content-Type: multipart/form-data; boundary=MyBoundary
+
+--MyBoundary
+Content-Disposition: form-data; name="data"
+
+{
+"name": "Juan Chuquimia",
+        "lastName": "Perez",
+        "email": "jperez@gmail.com",
+        "phone": "+591 783818281",
+        "passport": false,
+        "documentNumber": "19023133013",
+        "birthDate": "12-23-2001",
+        "male": true,
+        "address": "Achumani, Av Francia #170",
+        "emergencyPhone": "+591 121838182",
+        "cityId": 1,
+        "countryId": 1
+}
+
+--MyBoundary
+Content-Disposition: form-data; name="image"; filename="image.jpg"
+Content-Type: image/jpeg
+
+@ruta_de_la_imagen.jpg
+
+--MyBoundary
+Content-Disposition: form-data; name="clinicHistory"; filename="clinic_history.pdf"
+Content-Type: application/pdf
+
+@ruta_de_la_historia_clinica.pdf
+
+--MyBoundary
+Content-Disposition: form-data; name="participationVideo"; filename="video.mp4"
+Content-Type: video/mp4
+
+@ruta_del_video.mp4
+
+--MyBoundary
+Content-Disposition: form-data; name="personalDocument"; filename="document.pdf"
+Content-Type: application/pdf
+
+@ruta_del_documento.pdf
+
+--MyBoundary--

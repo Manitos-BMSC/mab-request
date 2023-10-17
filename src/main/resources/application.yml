@@ -2,7 +2,7 @@ spring:
   application:
     name: mab-request
 server:
-  port: 8010
+  port: 8012
 eureka:
   client:
     service-url:

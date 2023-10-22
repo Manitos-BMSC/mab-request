@@ -1,28 +1,44 @@
 package bo.edu.ucb.mabrequest.Api;
 
 import bo.edu.ucb.mabrequest.Bl.RequestBl;
+import bo.edu.ucb.mabrequest.Dto.CycleDto;
 import bo.edu.ucb.mabrequest.Dto.PatientDto;
 import bo.edu.ucb.mabrequest.Dto.RequestDto;
 import bo.edu.ucb.mabrequest.Dto.ResponseDto;
+import bo.edu.ucb.mabrequest.Service.CycleService;
 import bo.edu.ucb.mabrequest.Service.UserRegistryService;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/api/v1")
 public class RequestApi {
 
-    private UserRegistryService userRegistryService;
+    @Autowired
+    private RequestBl requestBl;
 
-    public RequestApi(UserRegistryService userRegistryService) {
+    private final UserRegistryService userRegistryService;
+
+    private final CycleService cycleService;
+
+    private final Logger logger = LoggerFactory.getLogger(RequestApi.class);
+
+    public RequestApi(UserRegistryService userRegistryService, CycleService cycleService) {
         this.userRegistryService = userRegistryService;
+        this.cycleService = cycleService;
     }
 
-    @GetMapping("/request")
+
+    /*@GetMapping("/request")
     public ResponseDto<List<RequestDto>> getRequests() {
         ResponseDto<List<RequestDto>> responseDto = new ResponseDto<>();
         RequestBl requestBl = new RequestBl();
@@ -31,6 +47,19 @@ public class RequestApi {
         responseDto.setData(requestBl.getAllRequests());
         responseDto.setCode(200);
         return responseDto;
+    }*/
+
+    @GetMapping("/request")
+    public ResponseEntity<ResponseDto<List<RequestDto>>> getRequests() {
+        logger.info("getRequests");
+        CycleDto actualCycle = Objects.requireNonNull(cycleService.getCurrentCycle().getBody()).getData();
+        logger.info("actualCycle: " + actualCycle);
+        List<RequestDto> requests = requestBl.getRequestsForActualCycle(actualCycle.getCycleId());
+        int code = 200;
+        String message = "OK";
+        Boolean success = true;
+        ResponseDto<List<RequestDto>> response = new ResponseDto<>(success, message, code, requests);
+        return ResponseEntity.status(200).body(response);
     }
 
     @PostMapping("/patient")
@@ -56,6 +85,25 @@ public class RequestApi {
         return ResponseEntity.status(HttpStatus.OK).body(response);*/
     }
 
+    @PutMapping("/doctor/assign/{requestId}/{doctorId}/{state}")
+    public ResponseEntity<ResponseDto<RequestDto>> assignDoctor(
+            @PathVariable("requestId") Long requestId,
+            @PathVariable("doctorId") int doctorId,
+            @PathVariable("state") String state
+    ) throws JsonProcessingException {
+        logger.info("assignDoctor");
+        RequestDto requestResponse = null;
+        if (state.equals("Aceptado")) {
+            requestResponse = requestBl.assignDoctor(requestId, doctorId);
+        } else if (state.equals("Rechazado")) {
+            requestResponse = requestBl.rejectRequest(requestId);
+        }
 
+        int code = 200;
+        String message = "OK";
+        Boolean success = true;
+        ResponseDto<RequestDto> response = new ResponseDto<>(success, message, code, requestResponse);
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
 
 }

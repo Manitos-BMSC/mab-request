@@ -61,7 +61,7 @@ public class RequestBl {
     }
 
     public RequestDto assignDoctor(Long requestId, int doctorId){
-        Request request = requestRepository.findByRequestId(requestId);
+        Request request = requestRepository.findOneById(requestId);
         if(request == null){
             logger.info("request not found");
             return null;
@@ -76,7 +76,7 @@ public class RequestBl {
     }
 
     public RequestDto rejectRequest(Long requestId){
-        Request request = requestRepository.findByRequestId(requestId);
+        Request request = requestRepository.findOneById(requestId);
         if(request == null){
             logger.info("request not found");
             return null;

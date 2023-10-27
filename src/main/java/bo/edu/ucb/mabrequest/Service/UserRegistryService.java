@@ -16,10 +16,11 @@ import org.springframework.web.multipart.MultipartFile;
 public interface UserRegistryService {
 
     @PostMapping(value = "/api/v1/registry/patient", consumes = {"multipart/form-data"})
-    public ResponseEntity<ResponseDto<PatientDto>> registerPatient(@RequestParam("data") String patientDtoJson,
+    public ResponseDto<PatientDto> registerPatient(@RequestParam("data") String patientDtoJson,
                                                                    @RequestPart("image") MultipartFile image,
                                                                    @RequestPart("clinicHistory") MultipartFile clinicHistory,
                                                                    @RequestPart("participationVideo") MultipartFile participationVideo,
                                                                    @RequestPart("personalDocument") MultipartFile personalDocument
     );
+
 }

@@ -28,26 +28,6 @@ public class RequestBl {
 
     private Logger logger = LoggerFactory.getLogger(RequestBl.class);
 
-    public List<RequestDto> getAllRequests() {
-        HttpClient client = HttpClient.newHttpClient();
-        String service = "http://localhost:9010/api/v1/request";
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(service))
-                .GET()
-                .build();
-        try {
-            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            if (response.statusCode() != 200) {
-                throw new RuntimeException("Failed : HTTP error code : " + response.statusCode());
-            }
-            ObjectMapper objectMapper = new ObjectMapper();
-            List<RequestDto> requestDtos = objectMapper.readValue(response.body(), new TypeReference<List<RequestDto>>() {});
-            return requestDtos;
-        } catch (IOException | InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     public List<RequestDto> getRequestsForActualCycle(Long cycleId){
         List<Request> requests = requestRepository.findAllByCycleId(cycleId.intValue());
         if(requests.isEmpty()){
@@ -68,6 +48,7 @@ public class RequestBl {
         }
         request.setDoctorId(doctorId);
         request.setRequestState("Aceptado");
+        //TODO revisar si deberia ser un update o un save
         requestRepository.save(request);
         //convert request to requestDto
         ObjectMapper objectMapper = new ObjectMapper();
@@ -88,4 +69,18 @@ public class RequestBl {
         RequestDto requestDto = objectMapper.convertValue(request, RequestDto.class);
         return requestDto;
     }
+
+//    public RequestDto createRequest(RequestDto requestDto){
+//        Request request = new Request();
+//        request.setPatientId(requestDto.getPatientId());
+//        request.setCycleId(requestDto.getCycleId());
+//        request.setRequestState("Pendiente");
+//        requestRepository.save(request);
+//        //convert request to requestDto
+//        ObjectMapper objectMapper = new ObjectMapper();
+//        RequestDto requestDtoResponse = objectMapper.convertValue(request, RequestDto.class);
+//        return requestDtoResponse;
+//    }
+
+
 }

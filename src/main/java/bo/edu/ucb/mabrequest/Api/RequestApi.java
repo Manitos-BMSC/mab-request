@@ -72,7 +72,13 @@ public class RequestApi {
             @RequestParam("personalDocument") MultipartFile personalDocument
     ) throws JsonProcessingException {
         System.out.println("patientDtoJson: " + patientDtoJson);
-        return userRegistryService.registerPatient(patientDtoJson, image, clinicHistory, participationVideo, personalDocument);
+
+        ResponseDto<PatientDto> newPacient = userRegistryService.registerPatient(patientDtoJson, image, clinicHistory, participationVideo, personalDocument);
+        System.out.println("newPacient: " + newPacient.getData().getPatientId());
+
+        //TODO guardar tambien en request
+
+        return ResponseEntity.status(HttpStatus.OK).body(newPacient);
         /*ObjectMapper objectMapper = new ObjectMapper();
         PatientDto patientDto = objectMapper.readValue(patientDtoJson, PatientDto.class);
         System.out.println("patientDto: " + patientDto);

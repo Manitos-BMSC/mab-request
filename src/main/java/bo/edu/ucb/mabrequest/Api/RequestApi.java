@@ -26,9 +26,12 @@ public class RequestApi {
     @Autowired
     private RequestBl requestBl;
 
+    @Autowired
     private final UserRegistryService userRegistryService;
 
+    @Autowired
     private final CycleService cycleService;
+
 
     private final Logger logger = LoggerFactory.getLogger(RequestApi.class);
 

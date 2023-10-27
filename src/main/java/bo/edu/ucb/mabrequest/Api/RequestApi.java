@@ -1,5 +1,6 @@
 package bo.edu.ucb.mabrequest.Api;
 
+import bo.edu.ucb.mabrequest.Bl.CycleBl;
 import bo.edu.ucb.mabrequest.Bl.RequestBl;
 import bo.edu.ucb.mabrequest.Dto.CycleDto;
 import bo.edu.ucb.mabrequest.Dto.PatientDto;
@@ -17,7 +18,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
-import java.util.Objects;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -27,17 +27,15 @@ public class RequestApi {
     private RequestBl requestBl;
 
     @Autowired
-    private final UserRegistryService userRegistryService;
+    private CycleBl cycleBl;
 
-    @Autowired
-    private final CycleService cycleService;
+    private final UserRegistryService userRegistryService;
 
 
     private final Logger logger = LoggerFactory.getLogger(RequestApi.class);
 
     public RequestApi(UserRegistryService userRegistryService, CycleService cycleService) {
         this.userRegistryService = userRegistryService;
-        this.cycleService = cycleService;
     }
 
 
@@ -55,7 +53,7 @@ public class RequestApi {
     @GetMapping("/request")
     public ResponseEntity<ResponseDto<List<RequestDto>>> getRequests() {
         logger.info("getRequests");
-        CycleDto actualCycle = Objects.requireNonNull(cycleService.getCurrentCycle().getBody()).getData();
+        CycleDto actualCycle = cycleBl.getCurrentCycle();
         logger.info("actualCycle: " + actualCycle);
         List<RequestDto> requests = requestBl.getRequestsForActualCycle(actualCycle.getCycleId());
         int code = 200;
@@ -89,16 +87,17 @@ public class RequestApi {
     }
 
     @PutMapping("/doctor/assign/{requestId}/{doctorId}/{state}")
-    public ResponseEntity<ResponseDto<RequestDto>> assignDoctor(
+    public ResponseEntity<ResponseDto<RequestDto>> updateRequest(
             @PathVariable("requestId") Long requestId,
             @PathVariable("doctorId") int doctorId,
             @PathVariable("state") String state
     ) throws JsonProcessingException {
-        logger.info("assignDoctor");
         RequestDto requestResponse = null;
         if (state.equals("Aceptado")) {
+            logger.info("assignDoctor");
             requestResponse = requestBl.assignDoctor(requestId, doctorId);
         } else if (state.equals("Rechazado")) {
+            logger.info("rejectRequest");
             requestResponse = requestBl.rejectRequest(requestId);
         }
 

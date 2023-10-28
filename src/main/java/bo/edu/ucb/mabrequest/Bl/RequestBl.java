@@ -1,5 +1,7 @@
 package bo.edu.ucb.mabrequest.Bl;
 
+import bo.edu.ucb.mabrequest.Dto.CycleDto;
+import bo.edu.ucb.mabrequest.Dto.PatientDto;
 import bo.edu.ucb.mabrequest.Dto.RequestDto;
 import bo.edu.ucb.mabrequest.Dto.ResponseDto;
 import bo.edu.ucb.mabrequest.dao.Request;
@@ -17,6 +19,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.Date;
 import java.util.List;
 
 
@@ -68,6 +71,18 @@ public class RequestBl {
         ObjectMapper objectMapper = new ObjectMapper();
         RequestDto requestDto = objectMapper.convertValue(request, RequestDto.class);
         return requestDto;
+    }
+
+    public void createRequest (PatientDto patientDto, CycleDto actualCycle){
+        Request request = new Request();
+        request.setPacientId(patientDto.getPatientId());
+        request.setCycleId(actualCycle.getCycleId().intValue());
+        request.setRequestState("Pendiente");
+        request.setRequestDate(new Date());
+        request.setConsentInformed("Pendiente");
+        request.setRequestResponse("");
+        request.setStatus(true);
+        requestRepository.save(request);
     }
 
 //    public RequestDto createRequest(RequestDto requestDto){

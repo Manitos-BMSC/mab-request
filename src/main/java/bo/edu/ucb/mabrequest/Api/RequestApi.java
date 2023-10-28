@@ -73,10 +73,15 @@ public class RequestApi {
     ) throws JsonProcessingException {
         System.out.println("patientDtoJson: " + patientDtoJson);
 
+        logger.info("Registering new patient");
         ResponseDto<PatientDto> newPacient = userRegistryService.registerPatient(patientDtoJson, image, clinicHistory, participationVideo, personalDocument);
-        System.out.println("newPacient: " + newPacient.getData().getPatientId());
+        logger.info("New patient registered");
 
-        //TODO guardar tambien en request
+        logger.info("Getting current cycle");
+        CycleDto actualCycle = cycleBl.getCurrentCycle();
+
+        logger.info("Request created");
+        requestBl.createRequest(newPacient.getData(), actualCycle);
 
         return ResponseEntity.status(HttpStatus.OK).body(newPacient);
         /*ObjectMapper objectMapper = new ObjectMapper();

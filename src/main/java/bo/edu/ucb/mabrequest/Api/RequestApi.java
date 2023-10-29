@@ -52,7 +52,7 @@ public class RequestApi {
 
     @GetMapping("/request")
     public ResponseEntity<ResponseDto<List<RequestDto>>> getRequests() {
-        logger.info("getRequests");
+        logger.info("getting acual cycle");
         CycleDto actualCycle = cycleBl.getCurrentCycle();
         logger.info("actualCycle: " + actualCycle);
         List<RequestDto> requests = requestBl.getRequestsForActualCycle(actualCycle.getCycleId());

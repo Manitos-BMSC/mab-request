@@ -63,7 +63,7 @@ public class RequestApi {
         return ResponseEntity.status(200).body(response);
     }
 
-    @PostMapping("/patient")
+    @PostMapping("/registry/patient")
     public ResponseEntity<ResponseDto<PatientDto>> createPatient(
             @RequestParam("data") String patientDtoJson,
             @RequestParam("image") MultipartFile image,

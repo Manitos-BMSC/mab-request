@@ -16,18 +16,20 @@ public class CycleBl {
 
     private final Logger logger = LoggerFactory.getLogger(CycleBl.class);
     public CycleDto getCurrentCycle(){
+        logger.info("Starting repository call to get current cycle");
         Cycle currentCycle = cycleRepository.findFirstByOrderByCycleIdDesc();
         if(currentCycle == null){
             logger.info("getCurrentCycle: currentCycle is null");
             return null;
         }
+        logger.info("CycleEntity: " + currentCycle);
         CycleDto cycleDto = new CycleDto();
         cycleDto.setCycleId(currentCycle.getCycleId());
         cycleDto.setCycleYear(currentCycle.getCycleYear());
         cycleDto.setDateEndRegistry(currentCycle.getDateEndRegistry());
         cycleDto.setMaxDoctors(currentCycle.getMaxDoctors());
         cycleDto.setMaxPatients(currentCycle.getMaxPatients());
-        logger.info("getCurrentCycle: " + cycleDto);
+        logger.info("CycleDto: " + cycleDto);
         return cycleDto;
     }
 

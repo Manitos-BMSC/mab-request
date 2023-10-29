@@ -7,6 +7,7 @@ import bo.edu.ucb.mabrequest.Dto.PatientDto;
 import bo.edu.ucb.mabrequest.Dto.RequestDto;
 import bo.edu.ucb.mabrequest.Dto.ResponseDto;
 import bo.edu.ucb.mabrequest.Service.CycleService;
+import bo.edu.ucb.mabrequest.Service.KeycloakTokenService;
 import bo.edu.ucb.mabrequest.Service.UserRegistryService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.slf4j.Logger;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -31,11 +33,14 @@ public class RequestApi {
 
     private final UserRegistryService userRegistryService;
 
+    private final KeycloakTokenService keycloakTokenService;
+
 
     private final Logger logger = LoggerFactory.getLogger(RequestApi.class);
 
-    public RequestApi(UserRegistryService userRegistryService, CycleService cycleService) {
+    public RequestApi(UserRegistryService userRegistryService, KeycloakTokenService keycloakTokenServic) {
         this.userRegistryService = userRegistryService;
+        this.keycloakTokenService = keycloakTokenServic;
     }
 
 
@@ -72,9 +77,20 @@ public class RequestApi {
             @RequestParam("personalDocument") MultipartFile personalDocument
     ) throws JsonProcessingException {
         System.out.println("patientDtoJson: " + patientDtoJson);
+        //get token
+        logger.info("Getting token");
+        Map<String, ?> token = keycloakTokenService.getToken(
+                "client_credentials",
+                "mab_backend",
+                "mzhqeGKq8LiwBb9tQ6q1z4HONF6to3tr"
+        );
+
+        String accessToken = "Bearer " + token.get("access_token");
+        logger.info("token: " + accessToken);
+
 
         logger.info("Registering new patient");
-        ResponseDto<PatientDto> newPacient = userRegistryService.registerPatient(patientDtoJson, image, clinicHistory, participationVideo, personalDocument);
+        ResponseDto<PatientDto> newPacient = userRegistryService.registerPatient(patientDtoJson, image, clinicHistory, participationVideo, personalDocument, accessToken);
         logger.info("New patient registered");
 
         logger.info("Getting current cycle");

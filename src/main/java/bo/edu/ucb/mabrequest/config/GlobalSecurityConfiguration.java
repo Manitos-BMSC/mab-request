@@ -27,10 +27,10 @@ public class GlobalSecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests( (authorizeHttpRequests) -> {
             authorizeHttpRequests
-                    .requestMatchers("/api/v1/patient").permitAll()
+                    .requestMatchers("/api/v1/registry/patient").permitAll()
                     .requestMatchers("/api/v1/request").hasAnyRole("doctorJefe", "doctor")
                     .requestMatchers("api/v1/doctor/assign/*").hasRole("doctorJefe")
-                    .requestMatchers("/api/v1/cycle").hasAnyRole("doctorJefe", "doctor")
+                    .requestMatchers("/api/v1/cycle").hasRole("doctorJefe")
                     .anyRequest()
                     .denyAll();
         });

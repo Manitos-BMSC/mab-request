@@ -2,13 +2,11 @@ package bo.edu.ucb.mabrequest.Api;
 
 import bo.edu.ucb.mabrequest.Bl.CycleBl;
 import bo.edu.ucb.mabrequest.Bl.RequestBl;
-import bo.edu.ucb.mabrequest.Dto.CycleDto;
-import bo.edu.ucb.mabrequest.Dto.PatientDto;
-import bo.edu.ucb.mabrequest.Dto.RequestDto;
-import bo.edu.ucb.mabrequest.Dto.ResponseDto;
+import bo.edu.ucb.mabrequest.Dto.*;
 import bo.edu.ucb.mabrequest.Service.CycleService;
 import bo.edu.ucb.mabrequest.Service.KeycloakTokenService;
 import bo.edu.ucb.mabrequest.Service.UserRegistryService;
+import bo.edu.ucb.mabrequest.dao.Request;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -113,26 +111,26 @@ public class RequestApi {
         return ResponseEntity.status(HttpStatus.OK).body(response);*/
     }
 
-    @PutMapping("/doctor/assign/{requestId}/{doctorId}/{state}")
-    public ResponseEntity<ResponseDto<RequestDto>> updateRequest(
+    @PutMapping("/doctor/assign/{requestId}")
+    public ResponseDto<Request> updateRequest(
             @PathVariable("requestId") Long requestId,
-            @PathVariable("doctorId") int doctorId,
-            @PathVariable("state") String state
+            @RequestBody AsignDoctorDto asignDoctorDto
     ) throws JsonProcessingException {
-        RequestDto requestResponse = null;
-        if (state.equals("Aceptado")) {
+        Request requestResponse = null;
+        if (asignDoctorDto.getRequestState().equals("Aceptado")) {
             logger.info("assignDoctor");
-            requestResponse = requestBl.assignDoctor(requestId, doctorId);
-        } else if (state.equals("Rechazado")) {
+            requestResponse = requestBl.assignDoctor(requestId, asignDoctorDto.getDoctorId(), asignDoctorDto.getChiefDoctorId());
+        } else if (asignDoctorDto.getRequestState().equals("Rechazado")) {
             logger.info("rejectRequest");
             requestResponse = requestBl.rejectRequest(requestId);
         }
+        ResponseDto responseDto = new ResponseDto();
+        responseDto.setCode(200);
+        responseDto.setMessage("OK");
+        responseDto.setSuccess(true);
+        responseDto.setData(requestResponse);
 
-        int code = 200;
-        String message = "OK";
-        Boolean success = true;
-        ResponseDto<RequestDto> response = new ResponseDto<>(success, message, code, requestResponse);
-        return ResponseEntity.status(HttpStatus.OK).body(response);
+        return responseDto;
     }
 
 }

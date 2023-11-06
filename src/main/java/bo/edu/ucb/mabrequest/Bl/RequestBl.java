@@ -43,23 +43,23 @@ public class RequestBl {
         return requestDtos;
     }
 
-    public RequestDto assignDoctor(Long requestId, int doctorId){
+    public Request assignDoctor(Long requestId, int doctorId, int chiefDoctorId){
         Request request = requestRepository.findOneById(requestId);
         if(request == null){
             logger.info("request not found");
             return null;
         }
+        request.setChiefDoctorId(chiefDoctorId);
         request.setDoctorId(doctorId);
         request.setRequestState("Aceptado");
         //TODO revisar si deberia ser un update o un save
         requestRepository.save(request);
         //convert request to requestDto
-        ObjectMapper objectMapper = new ObjectMapper();
-        RequestDto requestDto = objectMapper.convertValue(request, RequestDto.class);
-        return requestDto;
+
+        return request;
     }
 
-    public RequestDto rejectRequest(Long requestId){
+    public Request rejectRequest(Long requestId){
         Request request = requestRepository.findOneById(requestId);
         if(request == null){
             logger.info("request not found");
@@ -67,10 +67,7 @@ public class RequestBl {
         }
         request.setRequestState("Rechazado");
         requestRepository.save(request);
-        //convert request to requestDto
-        ObjectMapper objectMapper = new ObjectMapper();
-        RequestDto requestDto = objectMapper.convertValue(request, RequestDto.class);
-        return requestDto;
+        return request;
     }
 
     public void createRequest (PatientDto patientDto, CycleDto actualCycle){

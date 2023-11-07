@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface RequestRepository extends JpaRepository<Request, Long> {
 
-    List<Request> findAllByCycleId(Integer cycleId);
+    List<Request> findAllByCycleIdAndRequestState(Integer cycleId, String requestState);
     Request findOneById(Long Id);
 }

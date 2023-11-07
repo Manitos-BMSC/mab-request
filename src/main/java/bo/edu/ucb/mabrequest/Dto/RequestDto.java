@@ -1,122 +1,197 @@
 package bo.edu.ucb.mabrequest.Dto;
 
+import java.util.Date;
 import java.util.List;
 
 public class RequestDto {
-    private int requestId;
-    private String requestState;
-    private String pacientCity;
-    private String pacientName;
-    private String pacientLastName;
-    private String pacientAddress;
-    private String pacientPhone;
-    private String pacientEmail;
-    private String clinicHistory;
-    private String participationVideo;
-    private List<String> images;
+    private Long requestId;
+    private String name;
+    private String lastName;
+    private String email;
+    private String phone;
+    private Date birthDate;
+    private Boolean isMale;
+    private String address;
+    private String documentNumber;
+    private Boolean isPassport;
+    private String city;
+    private String emergencyPhone;
+
+    private String image;
+    private String documentation;
+    private String video;
+    private String informedConsent;
+
 
     public RequestDto() {
     }
 
-    public RequestDto(int requestId, String requestState, String pacientCity, String pacientName, String pacientLastName, String pacientAddress, String pacientPhone, String pacientEmail, String clinicHistory, String participationVideo, List<String> images) {
+    public RequestDto(Long requestId, String name, String lastName, String email, String phone, Date birthDate, Boolean isMale, String address, String documentNumber, Boolean isPassport, String city, String emergencyPhone, String image, String documentation, String video, String informedConsent) {
         this.requestId = requestId;
-        this.requestState = requestState;
-        this.pacientCity = pacientCity;
-        this.pacientName = pacientName;
-        this.pacientLastName = pacientLastName;
-        this.pacientAddress = pacientAddress;
-        this.pacientPhone = pacientPhone;
-        this.pacientEmail = pacientEmail;
-        this.clinicHistory = clinicHistory;
-        this.participationVideo = participationVideo;
-        this.images = images;
+        this.name = name;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
+        this.birthDate = birthDate;
+        this.isMale = isMale;
+        this.address = address;
+        this.documentNumber = documentNumber;
+        this.isPassport = isPassport;
+        this.city = city;
+        this.emergencyPhone = emergencyPhone;
+        this.image = image;
+        this.documentation = documentation;
+        this.video = video;
+        this.informedConsent = informedConsent;
     }
 
-    public int getRequestId() {
+    public Long getRequestId() {
         return requestId;
     }
 
-    public void setRequestId(int requestId) {
+    public void setRequestId(Long requestId) {
         this.requestId = requestId;
     }
 
-    public String getRequestState() {
-        return requestState;
+    public String getName() {
+        return name;
     }
 
-    public void setRequestState(String requestState) {
-        this.requestState = requestState;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getPacientCity() {
-        return pacientCity;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setPacientCity(String pacientCity) {
-        this.pacientCity = pacientCity;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getPacientName() {
-        return pacientName;
+    public String getEmail() {
+        return email;
     }
 
-    public void setPacientName(String pacientName) {
-        this.pacientName = pacientName;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getPacientLastName() {
-        return pacientLastName;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setPacientLastName(String pacientLastName) {
-        this.pacientLastName = pacientLastName;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public String getPacientAddress() {
-        return pacientAddress;
+    public Date getBirthDate() {
+        return birthDate;
     }
 
-    public void setPacientAddress(String pacientAddress) {
-        this.pacientAddress = pacientAddress;
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 
-    public String getPacientPhone() {
-        return pacientPhone;
+    public Boolean getMale() {
+        return isMale;
     }
 
-    public void setPacientPhone(String pacientPhone) {
-        this.pacientPhone = pacientPhone;
+    public void setMale(Boolean male) {
+        isMale = male;
     }
 
-    public String getPacientEmail() {
-        return pacientEmail;
+    public String getAddress() {
+        return address;
     }
 
-    public void setPacientEmail(String pacientEmail) {
-        this.pacientEmail = pacientEmail;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public String getClinicHistory() {
-        return clinicHistory;
+    public String getDocumentNumber() {
+        return documentNumber;
     }
 
-    public void setClinicHistory(String clinicHistory) {
-        this.clinicHistory = clinicHistory;
+    public void setDocumentNumber(String documentNumber) {
+        this.documentNumber = documentNumber;
     }
 
-    public String getParticipationVideo() {
-        return participationVideo;
+    public Boolean getPassport() {
+        return isPassport;
     }
 
-    public void setParticipationVideo(String participationVideo) {
-        this.participationVideo = participationVideo;
+    public void setPassport(Boolean passport) {
+        isPassport = passport;
     }
 
-    public List<String> getImages() {
-        return images;
+    public String getCity() {
+        return city;
     }
 
-    public void setImages(List<String> images) {
-        this.images = images;
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getEmergencyPhone() {
+        return emergencyPhone;
+    }
+
+    public void setEmergencyPhone(String emergencyPhone) {
+        this.emergencyPhone = emergencyPhone;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getDocumentation() {
+        return documentation;
+    }
+
+    public void setDocumentation(String documentation) {
+        this.documentation = documentation;
+    }
+
+    public String getVideo() {
+        return video;
+    }
+
+    public void setVideo(String video) {
+        this.video = video;
+    }
+
+    public String getInformedConsent() {
+        return informedConsent;
+    }
+
+    public void setInformedConsent(String informedConsent) {
+        this.informedConsent = informedConsent;
+    }
+
+    @Override
+    public String toString() {
+        return "RequestDto{" +
+                "requestId=" + requestId +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", birthDate=" + birthDate +
+                ", isMale=" + isMale +
+                ", address='" + address + '\'' +
+                ", documentNumber='" + documentNumber + '\'' +
+                ", isPassport=" + isPassport +
+                ", city='" + city + '\'' +
+                ", emergencyPhone='" + emergencyPhone + '\'' +
+                ", image='" + image + '\'' +
+                ", documentation='" + documentation + '\'' +
+                ", video='" + video + '\'' +
+                ", informedConsent='" + informedConsent + '\'' +
+                '}';
     }
 }

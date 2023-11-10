@@ -36,9 +36,9 @@ public class RequestApi {
 
     private final Logger logger = LoggerFactory.getLogger(RequestApi.class);
 
-    public RequestApi(UserRegistryService userRegistryService, KeycloakTokenService keycloakTokenServic) {
+    public RequestApi(UserRegistryService userRegistryService, KeycloakTokenService keycloakTokenService) {
         this.userRegistryService = userRegistryService;
-        this.keycloakTokenService = keycloakTokenServic;
+        this.keycloakTokenService = keycloakTokenService;
     }
 
 

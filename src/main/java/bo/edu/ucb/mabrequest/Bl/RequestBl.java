@@ -3,37 +3,34 @@ package bo.edu.ucb.mabrequest.Bl;
 import bo.edu.ucb.mabrequest.Dto.CycleDto;
 import bo.edu.ucb.mabrequest.Dto.PatientDto;
 import bo.edu.ucb.mabrequest.Dto.RequestDto;
-import bo.edu.ucb.mabrequest.Dto.ResponseDto;
+import bo.edu.ucb.mabrequest.Service.FileUploaderService;
+import bo.edu.ucb.mabrequest.dao.FilesPatient;
 import bo.edu.ucb.mabrequest.dao.Patient;
 import bo.edu.ucb.mabrequest.dao.Request;
+import bo.edu.ucb.mabrequest.dao.repository.FilesPatientRepository;
 import bo.edu.ucb.mabrequest.dao.repository.PatientRepository;
 import bo.edu.ucb.mabrequest.dao.repository.RequestRepository;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.aspectj.weaver.ast.Call;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 
 @Service
 public class RequestBl {
+    @Autowired
+    private FileUploaderService fileUploaderService;
 
     @Autowired
     private RequestRepository requestRepository;
     @Autowired
     private PatientRepository patientRepository;
+    @Autowired
+    private FilesPatientRepository filesPatientRepository;
+
+
 
     private Logger logger = LoggerFactory.getLogger(RequestBl.class);
 
@@ -96,18 +93,32 @@ public class RequestBl {
         logger.info("request patient id: " + request.getPacientId());
         Patient patient = patientRepository.findOneById(request.getPacientId());
         logger.info("patient: " + patient.toString());
-            requestDto.setName(patient.getPerson().getName());
-            requestDto.setLastName(patient.getPerson().getLastname());
-            requestDto.setEmail(patient.getPerson().getUserMail());
-            requestDto.setPhone(patient.getPerson().getPhoneNumber());
-            requestDto.setBirthDate(patient.getPerson().getBirthDate());
-            requestDto.setMale(patient.getPerson().isGender());
-            requestDto.setAddress(patient.getPerson().getAddress());
-            requestDto.setDocumentNumber(patient.getPerson().getDocumentNumber());
-            requestDto.setPassport(patient.getPerson().isDocumentType());
-            requestDto.setCity(patient.getPerson().getCity().getName());
-            requestDto.setEmergencyPhone(patient.getEmergencyPhone());
-            //TODO need to add files
+        requestDto.setName(patient.getPerson().getName());
+        requestDto.setLastName(patient.getPerson().getLastname());
+        requestDto.setEmail(patient.getPerson().getUserMail());
+        requestDto.setPhone(patient.getPerson().getPhoneNumber());
+        requestDto.setBirthDate(patient.getPerson().getBirthDate());
+        requestDto.setMale(patient.getPerson().isGender());
+        requestDto.setAddress(patient.getPerson().getAddress());
+        requestDto.setDocumentNumber(patient.getPerson().getDocumentNumber());
+        requestDto.setPassport(patient.getPerson().isDocumentType());
+        requestDto.setCity(patient.getPerson().getCity().getName());
+        requestDto.setEmergencyPhone(patient.getEmergencyPhone());
+        logger.info("Getting patient files");
+        List<FilesPatient> filesFromPatient = filesPatientRepository.findAllByPacientId(patient.getId());
+        for (FilesPatient file : filesFromPatient ){
+            switch (file.getS3Object().getBucket()) {
+                case "mab-patient-images" ->
+                        requestDto.setImage(fileUploaderService.getFile(file.getS3Object().getBucket(), file.getS3Object().getFileName()));
+                case "mab-patient-videos" ->
+                        requestDto.setVideo(fileUploaderService.getFile(file.getS3Object().getBucket(), file.getS3Object().getFileName()));
+                case "mab-patient-documents" ->
+                        requestDto.setDocumentation(fileUploaderService.getFile(file.getS3Object().getBucket(), file.getS3Object().getFileName()));
+                default ->
+                        requestDto.setInformedConsent(fileUploaderService.getFile(file.getS3Object().getBucket(), file.getS3Object().getFileName()));
+            }
+        }
+        logger.info("Getting patient files FINISHED");
 //        requestDto.setRequestDate(request.getRequestDate());
 //        requestDto.setConsentInformed(request.getConsentInformed());
 //        requestDto.setRequestResponse(request.getRequestResponse());

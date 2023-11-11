@@ -56,9 +56,15 @@ public class RequestApi {
     @GetMapping("/request")
     public ResponseEntity<ResponseDto<List<RequestDto>>> getRequests() {
         logger.info("getting acual cycle");
+        Map<String, ?> token = keycloakTokenService.getToken(
+                "client_credentials",
+                "mab_backend",
+                "mzhqeGKq8LiwBb9tQ6q1z4HONF6to3tr"
+        );
+        String accessToken = "Bearer " + token.get("access_token");
         CycleDto actualCycle = cycleBl.getCurrentCycle();
         logger.info("actualCycle: " + actualCycle);
-        List<RequestDto> requests = requestBl.getRequestsForActualCycle(actualCycle.getCycleId());
+        List<RequestDto> requests = requestBl.getRequestsForActualCycle(actualCycle.getCycleId(), accessToken);
         int code = 200;
         String message = "OK";
         Boolean success = true;

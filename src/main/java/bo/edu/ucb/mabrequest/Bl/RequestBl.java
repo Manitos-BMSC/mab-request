@@ -34,7 +34,7 @@ public class RequestBl {
 
     private Logger logger = LoggerFactory.getLogger(RequestBl.class);
 
-    public List<RequestDto> getRequestsForActualCycle(Long cycleId){
+    public List<RequestDto> getRequestsForActualCycle(Long cycleId, String token){
         logger.info("Access from database");
         List<Request> requests = requestRepository.findAllByCycleIdAndRequestState(cycleId.intValue(), "Pendiente");
         if(requests.isEmpty()){
@@ -44,7 +44,7 @@ public class RequestBl {
         List<RequestDto> requestDtoList = new ArrayList<>();
         for ( Request request: requests) {
             RequestDto requestDto = new RequestDto();
-            requestDtoList.add(transformRequest(request));
+            requestDtoList.add(transformRequest(request, token));
         }
         return requestDtoList;
     }
@@ -85,7 +85,7 @@ public class RequestBl {
         requestRepository.save(request);
     }
 
-    public RequestDto transformRequest(Request request){
+    public RequestDto transformRequest(Request request, String token){
         logger.info("Entering transformRequest");
         RequestDto requestDto = new RequestDto();
         requestDto.setRequestId(request.getId());
@@ -108,14 +108,14 @@ public class RequestBl {
         List<FilesPatient> filesFromPatient = filesPatientRepository.findAllByPacientId(patient.getId());
         for (FilesPatient file : filesFromPatient ){
             switch (file.getS3Object().getBucket()) {
-                case "mab-patient-images" ->
-                        requestDto.setImage(fileUploaderService.getFile(file.getS3Object().getBucket(), file.getS3Object().getFileName()));
-                case "mab-patient-videos" ->
-                        requestDto.setVideo(fileUploaderService.getFile(file.getS3Object().getBucket(), file.getS3Object().getFileName()));
-                case "mab-patient-documents" ->
-                        requestDto.setDocumentation(fileUploaderService.getFile(file.getS3Object().getBucket(), file.getS3Object().getFileName()));
+                case "mab-images" ->
+                        requestDto.setImage(fileUploaderService.getFile(file.getS3Object().getBucket(), file.getS3Object().getFileName(), token));
+                case "mab-videos" ->
+                        requestDto.setVideo(fileUploaderService.getFile(file.getS3Object().getBucket(), file.getS3Object().getFileName(), token));
+                case "mab-documents" ->
+                        requestDto.setDocumentation(fileUploaderService.getFile(file.getS3Object().getBucket(), file.getS3Object().getFileName(),token));
                 default ->
-                        requestDto.setInformedConsent(fileUploaderService.getFile(file.getS3Object().getBucket(), file.getS3Object().getFileName()));
+                        requestDto.setInformedConsent(fileUploaderService.getFile(file.getS3Object().getBucket(), file.getS3Object().getFileName(), token));
             }
         }
         logger.info("Getting patient files FINISHED");

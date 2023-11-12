@@ -20,7 +20,7 @@ public class CycleApi {
     private final Logger logger = LoggerFactory.getLogger(CycleApi.class);
 
     @GetMapping()
-    public ResponseEntity<ResponseDto<CycleDto>> getCurrentCycle(){
+    public ResponseDto<CycleDto> getCurrentCycle(){
         logger.info("getCurrentCycle");
         CycleDto currentCycle =  cycleBl.getCurrentCycle();
         int code = 200;
@@ -28,11 +28,11 @@ public class CycleApi {
         Boolean success = true;
         ResponseDto<CycleDto> response = new ResponseDto<>(success, message, code, currentCycle);
         System.out.println("response: " + response);
-        return ResponseEntity.status(HttpStatus.OK).body(response);
+        return response;
     }
 
     @PostMapping()
-    public ResponseEntity<ResponseDto<CycleDto>> createCycle(
+    public ResponseDto<CycleDto> createCycle(
             @RequestBody CycleDto cycleDto
     ){
         logger.info("createCycle");
@@ -42,7 +42,7 @@ public class CycleApi {
         Boolean success = true;
         ResponseDto<CycleDto> response = new ResponseDto<>(success, message, code, currentCycle);
         System.out.println("response: " + response);
-        return ResponseEntity.status(HttpStatus.OK).body(response);
+        return response;
     }
 
 }

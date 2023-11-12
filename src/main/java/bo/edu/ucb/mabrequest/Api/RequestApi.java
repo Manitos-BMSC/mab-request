@@ -54,7 +54,7 @@ public class RequestApi {
     }*/
 
     @GetMapping("/request")
-    public ResponseEntity<ResponseDto<List<RequestDto>>> getRequests() {
+    public ResponseDto<List<RequestDto>> getRequests() {
         logger.info("getting acual cycle");
         Map<String, ?> token = keycloakTokenService.getToken(
                 "client_credentials",
@@ -69,11 +69,11 @@ public class RequestApi {
         String message = "OK";
         Boolean success = true;
         ResponseDto<List<RequestDto>> response = new ResponseDto<>(success, message, code, requests);
-        return ResponseEntity.status(200).body(response);
+        return response;
     }
 
     @PostMapping("/registry/patient")
-    public ResponseEntity<ResponseDto<PatientDto>> createPatient(
+    public ResponseDto<PatientDto> createPatient(
             @RequestParam("data") String patientDtoJson,
             @RequestParam("image") MultipartFile image,
             @RequestParam("clinicHistory") MultipartFile clinicHistory,
@@ -103,7 +103,7 @@ public class RequestApi {
         logger.info("Request created");
         requestBl.createRequest(newPacient.getData(), actualCycle);
 
-        return ResponseEntity.status(HttpStatus.OK).body(newPacient);
+        return newPacient;
         /*ObjectMapper objectMapper = new ObjectMapper();
         PatientDto patientDto = objectMapper.readValue(patientDtoJson, PatientDto.class);
         System.out.println("patientDto: " + patientDto);

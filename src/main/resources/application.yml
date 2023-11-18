@@ -2,10 +2,10 @@ spring:
   application:
     name: mab-request
   rabbitmq:
-    host: localhost
+    host: 192.241.149.226
     port: 5672
-    username: guest
-    password: guest
+    username: admin
+    password: lEtfbOBZDtAg4v7
     virtual-host: "/"
   datasource:
     driver-class-name: org.postgresql.Driver

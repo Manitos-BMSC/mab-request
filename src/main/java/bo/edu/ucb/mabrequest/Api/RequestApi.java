@@ -122,13 +122,20 @@ public class RequestApi {
             @PathVariable("requestId") Long requestId,
             @RequestBody AsignDoctorDto asignDoctorDto
     ) throws JsonProcessingException {
+        Map<String, ?> token = keycloakTokenService.getToken(
+                "client_credentials",
+                "mab_backend",
+                "mzhqeGKq8LiwBb9tQ6q1z4HONF6to3tr"
+        );
+        String accessToken = "Bearer " + token.get("access_token");
+
         Request requestResponse = null;
         if (asignDoctorDto.getRequestState().equals("Aceptado")) {
             logger.info("assignDoctor");
-            requestResponse = requestBl.assignDoctor(requestId, asignDoctorDto.getDoctorId(), asignDoctorDto.getChiefDoctorId());
+            requestResponse = requestBl.assignDoctor(requestId, asignDoctorDto.getDoctorId(), asignDoctorDto.getChiefDoctorId(), accessToken);
         } else if (asignDoctorDto.getRequestState().equals("Rechazado")) {
             logger.info("rejectRequest");
-            requestResponse = requestBl.rejectRequest(requestId);
+            requestResponse = requestBl.rejectRequest(requestId, accessToken);
         }
         ResponseDto responseDto = new ResponseDto();
         responseDto.setCode(200);

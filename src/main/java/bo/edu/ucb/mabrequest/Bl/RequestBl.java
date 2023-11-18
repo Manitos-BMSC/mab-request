@@ -10,11 +10,14 @@ import bo.edu.ucb.mabrequest.dao.Request;
 import bo.edu.ucb.mabrequest.dao.repository.FilesPatientRepository;
 import bo.edu.ucb.mabrequest.dao.repository.PatientRepository;
 import bo.edu.ucb.mabrequest.dao.repository.RequestRepository;
+import bo.edu.ucb.mabrequest.producer.NotificationProducer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 
@@ -30,6 +33,8 @@ public class RequestBl {
     @Autowired
     private FilesPatientRepository filesPatientRepository;
 
+    @Autowired
+    private NotificationProducer notificationProducer;
 
 
     private Logger logger = LoggerFactory.getLogger(RequestBl.class);
@@ -49,7 +54,7 @@ public class RequestBl {
         return requestDtoList;
     }
 
-    public Request assignDoctor(Long requestId, int doctorId, int chiefDoctorId){
+    public Request assignDoctor(Long requestId, int doctorId, int chiefDoctorId, String token){
         Request request = requestRepository.findOneById(requestId);
         if(request == null){
             logger.info("request not found");
@@ -59,10 +64,11 @@ public class RequestBl {
         request.setDoctorId(doctorId);
         request.setRequestState("Aceptado");
         requestRepository.save(request);
+        notificationProducer.sendAcceptedNotification(transformRequest(request, token), "accepted");
         return request;
     }
 
-    public Request rejectRequest(Long requestId){
+    public Request rejectRequest(Long requestId, String token){
         Request request = requestRepository.findOneById(requestId);
         if(request == null){
             logger.info("request not found");
@@ -70,6 +76,7 @@ public class RequestBl {
         }
         request.setRequestState("Rechazado");
         requestRepository.save(request);
+        notificationProducer.sendAcceptedNotification(transformRequest(request, token), "rejected");
         return request;
     }
 
@@ -104,9 +111,11 @@ public class RequestBl {
         requestDto.setPassport(patient.getPerson().isDocumentType());
         requestDto.setCity(patient.getPerson().getCity().getName());
         requestDto.setEmergencyPhone(patient.getEmergencyPhone());
+        requestDto.setRequestDate(request.getRequestDate());
         logger.info("Getting patient files");
         List<FilesPatient> filesFromPatient = filesPatientRepository.findAllByPacientId(patient.getId());
         for (FilesPatient file : filesFromPatient ){
+            logger.info("file: " + file.toString());
             switch (file.getS3Object().getBucket()) {
                 case "mab-images" ->
                         requestDto.setImage(fileUploaderService.getFile(file.getS3Object().getBucket(), file.getS3Object().getFileName(), token));
@@ -125,7 +134,6 @@ public class RequestBl {
 //        requestDto.setStatus(request.getStatus());
         return requestDto;
     }
-
 
 //    public RequestDto createRequest(RequestDto requestDto){
 //        Request request = new Request();

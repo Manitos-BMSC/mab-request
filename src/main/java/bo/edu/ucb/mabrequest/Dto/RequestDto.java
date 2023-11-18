@@ -22,11 +22,13 @@ public class RequestDto {
     private String video;
     private String informedConsent;
 
+    private Date requestDate;
+
 
     public RequestDto() {
     }
 
-    public RequestDto(Long requestId, String name, String lastName, String email, String phone, Date birthDate, Boolean isMale, String address, String documentNumber, Boolean isPassport, String city, String emergencyPhone, String image, String documentation, String video, String informedConsent) {
+    public RequestDto(Long requestId, String name, String lastName, String email, String phone, Date birthDate, Boolean isMale, String address, String documentNumber, Boolean isPassport, String city, String emergencyPhone, String image, String documentation, String video, String informedConsent, Date requestDate) {
         this.requestId = requestId;
         this.name = name;
         this.lastName = lastName;
@@ -43,6 +45,7 @@ public class RequestDto {
         this.documentation = documentation;
         this.video = video;
         this.informedConsent = informedConsent;
+        this.requestDate = requestDate;
     }
 
     public Long getRequestId() {
@@ -173,25 +176,11 @@ public class RequestDto {
         this.informedConsent = informedConsent;
     }
 
-    @Override
-    public String toString() {
-        return "RequestDto{" +
-                "requestId=" + requestId +
-                ", name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", birthDate=" + birthDate +
-                ", isMale=" + isMale +
-                ", address='" + address + '\'' +
-                ", documentNumber='" + documentNumber + '\'' +
-                ", isPassport=" + isPassport +
-                ", city='" + city + '\'' +
-                ", emergencyPhone='" + emergencyPhone + '\'' +
-                ", image='" + image + '\'' +
-                ", documentation='" + documentation + '\'' +
-                ", video='" + video + '\'' +
-                ", informedConsent='" + informedConsent + '\'' +
-                '}';
+    public Date getRequestDate() {
+        return requestDate;
+    }
+
+    public void setRequestDate(Date requestDate) {
+        this.requestDate = requestDate;
     }
 }

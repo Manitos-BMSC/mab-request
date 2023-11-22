@@ -139,5 +139,28 @@ public class RequestBl {
 //        return requestDtoResponse;
 //    }
 
+    public List<RequestDto> getRequestForDoctor(Long doctorId){
+        List<Request> requests = requestRepository.findAllByDoctorIdAndRequestState(doctorId, "Aceptado");
+        List<RequestDto> requestDtoList = new ArrayList<>();
+        for ( Request request: requests) {
+            RequestDto requestDto = new RequestDto();
+            requestDto.setRequestId(request.getId());
+            Patient patient = patientRepository.findOneById(request.getPacientId());
+            requestDto.setName(patient.getPerson().getName());
+            requestDto.setLastName(patient.getPerson().getLastname());
+            requestDto.setEmail(patient.getPerson().getUserMail());
+            requestDto.setPhone(patient.getPerson().getPhoneNumber());
+            requestDto.setBirthDate(patient.getPerson().getBirthDate());
+            requestDto.setMale(patient.getPerson().isGender());
+            requestDto.setAddress(patient.getPerson().getAddress());
+            requestDto.setDocumentNumber(patient.getPerson().getDocumentNumber());
+            requestDto.setPassport(patient.getPerson().isDocumentType());
+            requestDto.setCity(patient.getPerson().getCity().getName());
+            requestDto.setEmergencyPhone(patient.getEmergencyPhone());
+            requestDto.setInformedConsent(request.getConsentInformed());
+            requestDtoList.add(requestDto);
+        }
+        return requestDtoList;
+    }
 
 }

@@ -9,4 +9,6 @@ public interface RequestRepository extends JpaRepository<Request, Long> {
 
     List<Request> findAllByCycleIdAndRequestState(Integer cycleId, String requestState);
     Request findOneById(Long Id);
+
+    List<Request> findAllByDoctorIdAndRequestState(Long doctorId, String requestState);
 }

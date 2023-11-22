@@ -30,7 +30,8 @@ public class GlobalSecurityConfiguration {
                     .requestMatchers("/api/v1/registry/patient").permitAll()
                     .requestMatchers("/api/v1/country-cities").permitAll()
                     .requestMatchers("/api/v1/request").hasAnyRole("doctorJefe", "doctor")
-                    .requestMatchers("api/v1/doctor/assign/*").hasRole("doctorJefe")
+                    .requestMatchers("api/v1/doctor/assign/**").hasRole("doctorJefe")
+                    .requestMatchers("/api/v1/doctor/**").hasAnyRole("doctorJefe", "doctor")
                     .requestMatchers("/api/v1/cycle").hasRole("doctorJefe")
                     .anyRequest()
                     .denyAll();

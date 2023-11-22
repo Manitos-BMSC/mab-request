@@ -139,4 +139,17 @@ public class RequestApi {
         return responseDto;
     }
 
+    @GetMapping("/doctor/{doctorId}/requests")
+    public ResponseDto<List<RequestDto>> getRequestsForDoctor(
+            @PathVariable("doctorId") Long doctorId
+    ) {
+        logger.info("getRequestsForDoctor");
+        List<RequestDto> requests = requestBl.getRequestForDoctor(doctorId);
+        ResponseDto<List<RequestDto>> responseDto = new ResponseDto<>();
+        responseDto.setCode(200);
+        responseDto.setMessage("OK");
+        responseDto.setSuccess(true);
+        responseDto.setData(requests);
+        return responseDto;
+    }
 }

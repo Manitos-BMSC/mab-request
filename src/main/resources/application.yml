@@ -1,6 +1,16 @@
 spring:
   application:
     name: mab-request
+  servlet:
+    multipart:
+      max-file-size: 1000MB   # Set your desired maximum file size here
+      max-request-size: 1000MB  # Set the maximum request size here if needed
+  rabbitmq:
+    host: 192.241.149.226
+    port: 5672
+    username: admin
+    password: lEtfbOBZDtAg4v7
+    virtual-host: "/"
   datasource:
     driver-class-name: org.postgresql.Driver
     username: ${DB_USER:postgres}

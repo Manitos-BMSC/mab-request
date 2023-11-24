@@ -147,9 +147,9 @@ public class RequestBl {
 //        return requestDtoResponse;
 //    }
 
-    public List<RequestDto> getRequestForDoctor(Long doctorId){
+    public List<RequestDto> getRequestForDoctor(Long doctorId, String token){
         List<Request> requests = requestRepository.findAllByDoctorIdAndRequestState(doctorId, "Aceptado");
-        List<RequestDto> requestDtoList = new ArrayList<>();
+        /*List<RequestDto> requestDtoList = new ArrayList<>();
         for ( Request request: requests) {
             RequestDto requestDto = new RequestDto();
             requestDto.setRequestId(request.getId());
@@ -167,7 +167,14 @@ public class RequestBl {
             requestDto.setEmergencyPhone(patient.getEmergencyPhone());
             requestDto.setInformedConsent(request.getConsentInformed());
             requestDtoList.add(requestDto);
+        }*/
+
+        List<RequestDto> requestDtoList = new ArrayList<>();
+        for ( Request request: requests) {
+            RequestDto requestDto = new RequestDto();
+            requestDtoList.add(transformRequest(request, token));
         }
+
         return requestDtoList;
     }
 

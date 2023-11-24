@@ -151,7 +151,13 @@ public class RequestApi {
             @PathVariable("doctorId") Long doctorId
     ) {
         logger.info("getRequestsForDoctor");
-        List<RequestDto> requests = requestBl.getRequestForDoctor(doctorId);
+        Map<String, ?> token = keycloakTokenService.getToken(
+                "client_credentials",
+                "mab_backend",
+                "mzhqeGKq8LiwBb9tQ6q1z4HONF6to3tr"
+        );
+        String accessToken = "Bearer " + token.get("access_token");
+        List<RequestDto> requests = requestBl.getRequestForDoctor(doctorId, accessToken);
         ResponseDto<List<RequestDto>> responseDto = new ResponseDto<>();
         responseDto.setCode(200);
         responseDto.setMessage("OK");

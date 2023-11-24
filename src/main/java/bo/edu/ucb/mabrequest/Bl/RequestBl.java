@@ -3,6 +3,7 @@ package bo.edu.ucb.mabrequest.Bl;
 import bo.edu.ucb.mabrequest.Dto.CycleDto;
 import bo.edu.ucb.mabrequest.Dto.PatientDto;
 import bo.edu.ucb.mabrequest.Dto.RequestDto;
+import bo.edu.ucb.mabrequest.Dto.RequestPatientDto;
 import bo.edu.ucb.mabrequest.Service.FileUploaderService;
 import bo.edu.ucb.mabrequest.dao.FilesPatient;
 import bo.edu.ucb.mabrequest.dao.Patient;
@@ -147,13 +148,14 @@ public class RequestBl {
 //        return requestDtoResponse;
 //    }
 
-    public List<RequestDto> getRequestForDoctor(Long doctorId){
+    public List<RequestPatientDto> getRequestForDoctor(Long doctorId, String token){
         List<Request> requests = requestRepository.findAllByDoctorIdAndRequestState(doctorId, "Aceptado");
-        List<RequestDto> requestDtoList = new ArrayList<>();
+        List<RequestPatientDto> requestDtoList = new ArrayList<>();
         for ( Request request: requests) {
-            RequestDto requestDto = new RequestDto();
+            RequestPatientDto requestDto = new RequestPatientDto();
             requestDto.setRequestId(request.getId());
             Patient patient = patientRepository.findOneById(request.getPacientId());
+            requestDto.setPatientId(patient.getId());
             requestDto.setName(patient.getPerson().getName());
             requestDto.setLastName(patient.getPerson().getLastname());
             requestDto.setEmail(patient.getPerson().getUserMail());
@@ -166,9 +168,26 @@ public class RequestBl {
             requestDto.setCity(patient.getPerson().getCity().getName());
             requestDto.setEmergencyPhone(patient.getEmergencyPhone());
             requestDto.setInformedConsent(request.getConsentInformed());
+            requestDto.setRequestDate(request.getRequestDate());
             requestDtoList.add(requestDto);
+            logger.info("Getting patient files");
+            List<FilesPatient> filesFromPatient = filesPatientRepository.findAllByPacientId(patient.getId());
+            for (FilesPatient file : filesFromPatient ){
+                logger.info("file: " + file.toString());
+                switch (file.getS3Object().getBucket()) {
+                    case "mab-images" ->
+                            requestDto.setImage(fileUploaderService.getFile(file.getS3Object().getBucket(), file.getS3Object().getFileName(), token));
+                    case "mab-videos" ->
+                            requestDto.setVideo(fileUploaderService.getFile(file.getS3Object().getBucket(), file.getS3Object().getFileName(), token));
+                    case "mab-documents" ->
+                            requestDto.setDocumentation(fileUploaderService.getFile(file.getS3Object().getBucket(), file.getS3Object().getFileName(),token));
+                    default ->
+                            requestDto.setInformedConsent(fileUploaderService.getFile(file.getS3Object().getBucket(), file.getS3Object().getFileName(), token));
+                }
+            }
         }
         return requestDtoList;
     }
+
 
 }

@@ -41,18 +41,6 @@ public class RequestApi {
         this.keycloakTokenService = keycloakTokenService;
     }
 
-
-    /*@GetMapping("/request")
-    public ResponseDto<List<RequestDto>> getRequests() {
-        ResponseDto<List<RequestDto>> responseDto = new ResponseDto<>();
-        RequestBl requestBl = new RequestBl();
-        requestBl.getAllRequests();
-        responseDto.setMessage("All requests");
-        responseDto.setData(requestBl.getAllRequests());
-        responseDto.setCode(200);
-        return responseDto;
-    }*/
-
     @GetMapping("/request")
     public ResponseDto<List<RequestDto>> getRequests() {
         logger.info("getting acual cycle");
@@ -147,16 +135,23 @@ public class RequestApi {
     }
 
     @GetMapping("/doctor/{doctorId}/requests")
-    public ResponseDto<List<RequestDto>> getRequestsForDoctor(
+    public ResponseDto<List<RequestPatientDto>> getRequestsForDoctor(
             @PathVariable("doctorId") Long doctorId
     ) {
+        Map<String, ?> token = keycloakTokenService.getToken(
+                "client_credentials",
+                "mab_backend",
+                "mzhqeGKq8LiwBb9tQ6q1z4HONF6to3tr"
+        );
+        String accessToken = "Bearer " + token.get("access_token");
         logger.info("getRequestsForDoctor");
-        List<RequestDto> requests = requestBl.getRequestForDoctor(doctorId);
-        ResponseDto<List<RequestDto>> responseDto = new ResponseDto<>();
+        List<RequestPatientDto> requests = requestBl.getRequestForDoctor(doctorId, accessToken);
+        ResponseDto<List<RequestPatientDto>> responseDto = new ResponseDto<>();
         responseDto.setCode(200);
         responseDto.setMessage("OK");
         responseDto.setSuccess(true);
         responseDto.setData(requests);
         return responseDto;
     }
+
 }

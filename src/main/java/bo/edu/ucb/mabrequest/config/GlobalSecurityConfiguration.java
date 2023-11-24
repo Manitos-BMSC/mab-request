@@ -26,45 +26,24 @@ public class GlobalSecurityConfiguration {
 
     private final Logger logger = LoggerFactory.getLogger(GlobalSecurityConfiguration.class);
 
-    /*@Value("#{${security-constraints}}")
-    private List<SecurityConstraint> securityConstraints;*/
-    public GlobalSecurityConfiguration(TokenConverterProperties properties) {
+    private final SecurityConstraintsProperties securityConstraintsProperties;
+    public GlobalSecurityConfiguration(TokenConverterProperties properties, SecurityConstraintsProperties securityConstraintsProperties) {
         JwtGrantedAuthoritiesConverter jwtGrantedAuthoritiesConverter
                 = new JwtGrantedAuthoritiesConverter();
         this.keycloakJwtTokenConverter
                 = new KeycloakJwtTokenConverter(
                 jwtGrantedAuthoritiesConverter,
                 properties);
+        this.securityConstraintsProperties = securityConstraintsProperties;
     }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-       SecurityCollection securityCollection = new SecurityCollection();
 
-       securityCollection.setName("prueba");
-         securityCollection.setPatterns(Arrays.asList("/api/v1/request"));
-            securityCollection.setMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
-        SecurityConstraint securityConstraint = new SecurityConstraint();
-        securityConstraint.setAuthRoles(Arrays.asList("doctorJefe", "doctor"));
-        securityConstraint.setSecurityCollections(Arrays.asList(securityCollection));
-
-        SecurityCollection cycle = new SecurityCollection();
-
-        cycle.setName("cycle");
-        cycle.setPatterns(Arrays.asList("/api/v1/cycle"));
-        cycle.setMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
-
-
-        SecurityConstraint securityConstraintCycle = new SecurityConstraint();
-        securityConstraintCycle.setAuthRoles(Arrays.asList("permitAll"));
-        securityConstraintCycle.setSecurityCollections(Arrays.asList(cycle));
-
-        List<SecurityConstraint> securityConstraints = new ArrayList<>();
-        securityConstraints.add(securityConstraintCycle);
+        List<SecurityConstraint> securityConstraints = securityConstraintsProperties.getConstraints();
 
         http.authorizeHttpRequests( (authorizeHttpRequests) -> {
             securityConstraints.forEach( (constraint) -> {
-                logger.info("constraint: " + constraint);
                 try {
                     List<String> authRoles = constraint.getAuthRoles();
                     List<SecurityCollection> securityCollections = constraint.getSecurityCollections();
@@ -99,42 +78,58 @@ public class GlobalSecurityConfiguration {
                             }
                         }
 
+
                         AuthorizeHttpRequestsConfigurer<HttpSecurity>.AuthorizationManagerRequestMatcherRegistry response = null;
 
                         if (httpMethods.isEmpty()) {
-                            response = authorizeHttpRequests
-                                    .requestMatchers(patterns.toArray(new String[0]))
-                                    .hasAnyRole(authRoles.toArray(new String[0]));
-                        }else{
-                            if (authRoles.size() == 1) {
+                            if(authRoles.size() == 1){
                                 String role = authRoles.get(0);
-                                if (role.equals("permitAll")) {
-                                    response = authorizeHttpRequests
+                                if(role.equals("permitAll")){
+                                    logger.info("name: " + name + " patterns: " + patterns + " configuration: permitAll with no methods");
+                                    authorizeHttpRequests
                                             .requestMatchers(patterns.toArray(new String[0]))
                                             .permitAll();
                                 }
                             }else{
+                                logger.info("name: " + name + " patterns: " + patterns + " configuration:" + authRoles + "with no methods");
+                                authorizeHttpRequests
+                                        .requestMatchers(patterns.toArray(new String[0]))
+                                        .hasAnyRole(authRoles.toArray(new String[0]));
+                            }
+                        }else{
+                            if (authRoles.size() == 1) {
+                                String role = authRoles.get(0);
+                                if (role.equals("permitAll")) {
+                                    logger.info("name: " + name + " patterns: " + patterns + " configuration: permitAll with methods: " + httpMethods);
+                                    for (HttpMethod httpMethod: httpMethods
+                                    ) {
+                                        authorizeHttpRequests
+                                                .requestMatchers(httpMethod, patterns.toArray(new String[0]))
+                                                .permitAll();
+                                    }
+                                }
+                            }else{
+                                logger.info("name: " + name + " patterns: " + patterns + " configuration:" + authRoles + "with methods: " + httpMethods);
                                 for (HttpMethod httpMethod: httpMethods
                                 ) {
-                                   response = authorizeHttpRequests
+                                   authorizeHttpRequests
                                             .requestMatchers(httpMethod, patterns.toArray(new String[0]))
                                             .hasAnyRole(authRoles.toArray(new String[0]));
                                 }
                             }
                         }
 
-                        response.anyRequest().denyAll();
-
                     });
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             });
+            authorizeHttpRequests.anyRequest().denyAll();
             /*authorizeHttpRequests
                     .requestMatchers("/api/v1/registry/patient").permitAll()
                     .requestMatchers("/api/v1/country-cities").permitAll()
                     .requestMatchers("/api/v1/request").hasAnyRole("doctorJefe", "doctor")
-                    .requestMatchers("api/v1/doctor/assign/**").hasRole("doctorJefe")
+                    .requestMatchers("/api/v1/doctor/assign/**").hasRole("doctorJefe")
                     .requestMatchers("/api/v1/doctor/**").hasAnyRole("doctorJefe", "doctor")
                     .requestMatchers("/api/v1/cycle").hasRole("doctorJefe")
                     .anyRequest()

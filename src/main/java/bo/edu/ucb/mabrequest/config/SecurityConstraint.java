@@ -1,5 +1,6 @@
 package bo.edu.ucb.mabrequest.config;
 
+
 import java.util.List;
 
 public class SecurityConstraint {
@@ -29,5 +30,12 @@ public class SecurityConstraint {
 
     public void setSecurityCollections(List<SecurityCollection> securityCollections) {
         this.securityCollections = securityCollections;
+    }
+
+    public String toString() {
+        return "SecurityConstraint{" +
+                "authRoles=" + authRoles +
+                ", securityCollections=" + securityCollections +
+                '}';
     }
 }

@@ -39,4 +39,12 @@ public class SecurityCollection {
     public void setMethods(List<String> methods) {
         this.methods = methods;
     }
+
+    public String toString() {
+        return "SecurityCollection{" +
+                "name=" + name +
+                ", patterns=" + patterns +
+                ", methods=" + methods +
+                '}';
+    }
 }

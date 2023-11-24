@@ -14,7 +14,7 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableFeignClients
 public class MabRequestApplication {
 
-	/*@Bean
+	@Bean
 	public ApplicationRunner runner(ConnectionFactory connectionFactory ) {
 		return ApplicationRunner -> {
 			var open = false;
@@ -27,7 +27,7 @@ public class MabRequestApplication {
 				}
 			}
 		};
-	}*/
+	}
 	public static void main(String[] args) {
 		SpringApplication.run(MabRequestApplication.class, args);
 	}

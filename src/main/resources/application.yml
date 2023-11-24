@@ -47,15 +47,54 @@ management:
       endpoint: http://192.241.149.226:9411/api/v2/spans
 
 security-constraints:
-  - auth-roles:
-      - doctor
-      - doctorJefe
-    security-collections:
-      - name: prueba
-        patterns:
-          - /api/v1/request
-        methods:
-          - GET
-          - POST
-          - PUT
-          - DELETE
+  constraints:
+    - auth-roles:
+        - permitAll
+      security-collections:
+        - name: registroDePacientes
+          patterns:
+            - /api/v1/registry/patient
+          methods:
+
+    - auth-roles:
+        - permitAll
+      security-collections:
+        - name: paisesCiudades
+          patterns:
+            - /api/v1/country-cities
+          methods:
+
+    - auth-roles:
+        - doctorJefe
+        - doctor
+      security-collections:
+        - name: request
+          patterns:
+            - /api/v1/request
+          methods:
+
+    - auth-roles:
+        - doctorJefe
+      security-collections:
+        - name: assign
+          patterns:
+            - /api/v1/doctor/assign/**
+          methods:
+
+    - auth-roles:
+        - doctorJefe
+        - doctor
+      security-collections:
+        - name: doctor
+          patterns:
+            - /api/v1/doctor/**
+          methods:
+
+    - auth-roles:
+        - doctorJefe
+        - doctor
+      security-collections:
+        - name: cycle
+          patterns:
+            - /api/v1/cycle
+          methods:

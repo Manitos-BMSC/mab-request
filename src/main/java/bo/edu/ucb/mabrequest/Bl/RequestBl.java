@@ -3,6 +3,7 @@ package bo.edu.ucb.mabrequest.Bl;
 import bo.edu.ucb.mabrequest.Dto.CycleDto;
 import bo.edu.ucb.mabrequest.Dto.PatientDto;
 import bo.edu.ucb.mabrequest.Dto.RequestDto;
+import bo.edu.ucb.mabrequest.Dto.RequestPatientDto;
 import bo.edu.ucb.mabrequest.Service.FileUploaderService;
 import bo.edu.ucb.mabrequest.dao.FilesPatient;
 import bo.edu.ucb.mabrequest.dao.Patient;
@@ -147,35 +148,18 @@ public class RequestBl {
 //        return requestDtoResponse;
 //    }
 
-    public List<RequestDto> getRequestForDoctor(Long doctorId, String token){
-        List<Request> requests = requestRepository.findAllByDoctorIdAndRequestState(doctorId, "Aceptado");
-        /*List<RequestDto> requestDtoList = new ArrayList<>();
-        for ( Request request: requests) {
-            RequestDto requestDto = new RequestDto();
-            requestDto.setRequestId(request.getId());
-            Patient patient = patientRepository.findOneById(request.getPacientId());
-            requestDto.setName(patient.getPerson().getName());
-            requestDto.setLastName(patient.getPerson().getLastname());
-            requestDto.setEmail(patient.getPerson().getUserMail());
-            requestDto.setPhone(patient.getPerson().getPhoneNumber());
-            requestDto.setBirthDate(patient.getPerson().getBirthDate());
-            requestDto.setMale(patient.getPerson().isGender());
-            requestDto.setAddress(patient.getPerson().getAddress());
-            requestDto.setDocumentNumber(patient.getPerson().getDocumentNumber());
-            requestDto.setPassport(patient.getPerson().isDocumentType());
-            requestDto.setCity(patient.getPerson().getCity().getName());
-            requestDto.setEmergencyPhone(patient.getEmergencyPhone());
-            requestDto.setInformedConsent(request.getConsentInformed());
-            requestDtoList.add(requestDto);
-        }*/
 
-        List<RequestDto> requestDtoList = new ArrayList<>();
+    public List<RequestPatientDto> getRequestForDoctor(Long doctorId, String token){
+        List<Request> requests = requestRepository.findAllByDoctorIdAndRequestState(doctorId, "Aceptado");
+        List<RequestPatientDto> requestPatientDtoList = new ArrayList<>();
+
         for ( Request request: requests) {
-            RequestDto requestDto = new RequestDto();
-            requestDtoList.add(transformRequest(request, token));
+            RequestDto requestWithFiles = transformRequest(request, token);
+            requestPatientDtoList.add(RequestPatientDto.fromRequestDto(request.getPacientId(), requestWithFiles));
         }
 
-        return requestDtoList;
+        return requestPatientDtoList;
     }
+
 
 }

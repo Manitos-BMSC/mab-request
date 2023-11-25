@@ -148,45 +148,17 @@ public class RequestBl {
 //        return requestDtoResponse;
 //    }
 
+
     public List<RequestPatientDto> getRequestForDoctor(Long doctorId, String token){
         List<Request> requests = requestRepository.findAllByDoctorIdAndRequestState(doctorId, "Aceptado");
-        List<RequestPatientDto> requestDtoList = new ArrayList<>();
+        List<RequestPatientDto> requestPatientDtoList = new ArrayList<>();
+
         for ( Request request: requests) {
-            RequestPatientDto requestDto = new RequestPatientDto();
-            requestDto.setRequestId(request.getId());
-            Patient patient = patientRepository.findOneById(request.getPacientId());
-            requestDto.setPatientId(patient.getId());
-            requestDto.setName(patient.getPerson().getName());
-            requestDto.setLastName(patient.getPerson().getLastname());
-            requestDto.setEmail(patient.getPerson().getUserMail());
-            requestDto.setPhone(patient.getPerson().getPhoneNumber());
-            requestDto.setBirthDate(patient.getPerson().getBirthDate());
-            requestDto.setMale(patient.getPerson().isGender());
-            requestDto.setAddress(patient.getPerson().getAddress());
-            requestDto.setDocumentNumber(patient.getPerson().getDocumentNumber());
-            requestDto.setPassport(patient.getPerson().isDocumentType());
-            requestDto.setCity(patient.getPerson().getCity().getName());
-            requestDto.setEmergencyPhone(patient.getEmergencyPhone());
-            requestDto.setInformedConsent(request.getConsentInformed());
-            requestDto.setRequestDate(request.getRequestDate());
-            requestDtoList.add(requestDto);
-            logger.info("Getting patient files");
-            List<FilesPatient> filesFromPatient = filesPatientRepository.findAllByPacientId(patient.getId());
-            for (FilesPatient file : filesFromPatient ){
-                logger.info("file: " + file.toString());
-                switch (file.getS3Object().getBucket()) {
-                    case "mab-images" ->
-                            requestDto.setImage(fileUploaderService.getFile(file.getS3Object().getBucket(), file.getS3Object().getFileName(), token));
-                    case "mab-videos" ->
-                            requestDto.setVideo(fileUploaderService.getFile(file.getS3Object().getBucket(), file.getS3Object().getFileName(), token));
-                    case "mab-documents" ->
-                            requestDto.setDocumentation(fileUploaderService.getFile(file.getS3Object().getBucket(), file.getS3Object().getFileName(),token));
-                    default ->
-                            requestDto.setInformedConsent(fileUploaderService.getFile(file.getS3Object().getBucket(), file.getS3Object().getFileName(), token));
-                }
-            }
+            RequestDto requestWithFiles = transformRequest(request, token);
+            requestPatientDtoList.add(RequestPatientDto.fromRequestDto(request.getPacientId(), requestWithFiles));
         }
-        return requestDtoList;
+
+        return requestPatientDtoList;
     }
 
 

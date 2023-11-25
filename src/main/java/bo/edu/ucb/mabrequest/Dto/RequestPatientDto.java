@@ -192,4 +192,27 @@ public class RequestPatientDto {
     public void setRequestDate(Date requestDate) {
         this.requestDate = requestDate;
     }
+
+    public static RequestPatientDto fromRequestDto(int patientId, RequestDto requestDto){
+        return new RequestPatientDto(
+                patientId,
+                requestDto.getRequestId(),
+                requestDto.getName(),
+                requestDto.getLastName(),
+                requestDto.getEmail(),
+                requestDto.getPhone(),
+                requestDto.getBirthDate(),
+                requestDto.getMale(),
+                requestDto.getAddress(),
+                requestDto.getDocumentNumber(),
+                requestDto.getPassport(),
+                requestDto.getCity(),
+                requestDto.getEmergencyPhone(),
+                requestDto.getImage(),
+                requestDto.getDocumentation(),
+                requestDto.getVideo(),
+                requestDto.getInformedConsent(),
+                requestDto.getRequestDate()
+        );
+    }
 }

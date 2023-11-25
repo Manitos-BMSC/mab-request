@@ -2,21 +2,17 @@ package bo.edu.ucb.mabrequest.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
 import org.springframework.security.web.SecurityFilterChain;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 @Configuration
 @EnableWebSecurity
@@ -41,6 +37,8 @@ public class GlobalSecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         List<SecurityConstraint> securityConstraints = securityConstraintsProperties.getConstraints();
+
+        logger.info("securityConstraints: " + securityConstraints);
 
         http.authorizeHttpRequests( (authorizeHttpRequests) -> {
             securityConstraints.forEach( (constraint) -> {
@@ -78,9 +76,6 @@ public class GlobalSecurityConfiguration {
                             }
                         }
 
-
-                        AuthorizeHttpRequestsConfigurer<HttpSecurity>.AuthorizationManagerRequestMatcherRegistry response = null;
-
                         if (httpMethods.isEmpty()) {
                             if(authRoles.size() == 1){
                                 String role = authRoles.get(0);
@@ -107,6 +102,14 @@ public class GlobalSecurityConfiguration {
                                                 .requestMatchers(httpMethod, patterns.toArray(new String[0]))
                                                 .permitAll();
                                     }
+                                }else{
+                                    logger.info("name: " + name + " patterns: " + patterns + " configuration: " + authRoles + " with methods: " + httpMethods);
+                                    for (HttpMethod httpMethod: httpMethods
+                                    ) {
+                                        authorizeHttpRequests
+                                                .requestMatchers(httpMethod, patterns.toArray(new String[0]))
+                                                .hasAnyRole(authRoles.toArray(new String[0]));
+                                    }
                                 }
                             }else{
                                 logger.info("name: " + name + " patterns: " + patterns + " configuration:" + authRoles + "with methods: " + httpMethods);
@@ -125,15 +128,6 @@ public class GlobalSecurityConfiguration {
                 }
             });
             authorizeHttpRequests.anyRequest().denyAll();
-            /*authorizeHttpRequests
-                    .requestMatchers("/api/v1/registry/patient").permitAll()
-                    .requestMatchers("/api/v1/country-cities").permitAll()
-                    .requestMatchers("/api/v1/request").hasAnyRole("doctorJefe", "doctor")
-                    .requestMatchers("/api/v1/doctor/assign/**").hasRole("doctorJefe")
-                    .requestMatchers("/api/v1/doctor/**").hasAnyRole("doctorJefe", "doctor")
-                    .requestMatchers("/api/v1/cycle").hasRole("doctorJefe")
-                    .anyRequest()
-                    .denyAll();*/
         });
         http.oauth2ResourceServer( (oauth2) -> {
             oauth2.jwt( (jwt) -> jwt.jwtAuthenticationConverter(keycloakJwtTokenConverter));

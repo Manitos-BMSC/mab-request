@@ -6,16 +6,16 @@ spring:
       max-file-size: 1000MB   # Set your desired maximum file size here
       max-request-size: 1000MB  # Set the maximum request size here if needed
   rabbitmq:
-    host: 192.241.149.226
-    port: 5672
-    username: admin
-    password: lEtfbOBZDtAg4v7
-    virtual-host: "/"
+    host: ${RABBITMQ_HOST:192.241.149.226}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME:admin}
+    password: ${RABBITMQ_SECRET_KEY:lEtfbOBZDtAg4v7}
+    virtual-host: ${RABBITMQ_HOST:"/"}
   datasource:
     driver-class-name: org.postgresql.Driver
-    username: ${DB_USER:postgres}
-    password: ${DB_PASSWORD:lEtfbOBZDtAg4v7}
-    url: ${DB_URL:jdbc:postgresql://192.241.149.226:5432/db_mab}
+    username: ${POSTGRES_USERNAME:postgres}
+    password: ${POSTGRES_PASSWORD:lEtfbOBZDtAg4v7}
+    url: ${POSTGRES_URL:jdbc:postgresql://192.241.149.226:5432/db_mab}
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
@@ -25,14 +25,14 @@ spring:
     oauth2:
       resource-server:
         jwt:
-          issuer-uri: http://192.241.149.226:8080/realms/mab-manitos
-          jwk-set-uri: http://192.241.149.226:8080/realms/mab-manitos/protocol/openid-connect/certs
+          issuer-uri: ${KEYCLOAK_REALM:http://192.241.149.226:8080/realms/mab-manitos}
+          jwk-set-uri: ${KEYCLOAK_OPEN_ID:http://192.241.149.226:8080/realms/mab-manitos/protocol/openid-connect/certs}
 server:
-  port: 8012
+  port: ${PORT:8012}
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: ${EUREKA_SERVER_URI:http://localhost:8761/eureka/}
 token:
   converter:
     principal-attribute: preferred_username
@@ -44,7 +44,7 @@ management:
       probability: 1.0
   zipkin:
     tracing:
-      endpoint: http://192.241.149.226:9411/api/v2/spans
+      endpoint: ${ZIPKIN_SERVER_URI:http://192.241.149.226:9411/api/v2/spans}
 
 security-constraints:
   constraints:

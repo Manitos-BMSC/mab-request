@@ -71,6 +71,7 @@ security-constraints:
         - name: request
           patterns:
             - /api/v1/request
+            - /api/v1/request/**
           methods:
 
     - auth-roles:

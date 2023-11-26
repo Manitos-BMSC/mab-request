@@ -154,4 +154,24 @@ public class RequestApi {
         return responseDto;
     }
 
+    @GetMapping("/request/patient/{patientId}")
+    public ResponseDto<RequestDto> getRequestForPatient(
+            @PathVariable("patientId") Long patientId
+    ) {
+        Map<String, ?> token = keycloakTokenService.getToken(
+                "client_credentials",
+                "mab_backend",
+                "mzhqeGKq8LiwBb9tQ6q1z4HONF6to3tr"
+        );
+        String accessToken = "Bearer " + token.get("access_token");
+        logger.info("getRequestForPatient");
+        RequestDto request = requestBl.getRequestForPatient(patientId, accessToken);
+        ResponseDto<RequestDto> responseDto = new ResponseDto<>();
+        responseDto.setCode(200);
+        responseDto.setMessage("OK");
+        responseDto.setSuccess(true);
+        responseDto.setData(request);
+        return responseDto;
+    }
+
 }

@@ -161,5 +161,11 @@ public class RequestBl {
         return requestPatientDtoList;
     }
 
+    public RequestDto getRequestForPatient(Long patinetId, String token){
+        Request request = requestRepository.findOneByPacientId(patinetId);
+
+        return  transformRequest(request,token);
+    }
+
 
 }

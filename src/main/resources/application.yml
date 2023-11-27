@@ -46,6 +46,7 @@ management:
     tracing:
       endpoint: ${ZIPKIN_SERVER_URI:http://192.241.149.226:9411/api/v2/spans}
 
+
 security-constraints:
   constraints:
     - auth-roles:

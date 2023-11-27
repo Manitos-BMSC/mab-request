@@ -28,12 +28,12 @@ done
 
 docker build -t $container_name:$version_tag .
 
-#echo "Deploying docker image..."
-#docker tag $container_name:$version_tag sebastianbelmonte01dev/$container_name:$version_tag
-#docker push sebastianbelmonte01dev/$container_name:$version_tag
-#
-#if [ $? -eq 0 ]; then
-#  echo "Operation completed successfully!"
-#else
-#  echo "Operation failed."
-#fi
+echo "Deploying docker image..."
+docker tag $container_name:$version_tag sebastianbelmonte01dev/$container_name:$version_tag
+docker push sebastianbelmonte01dev/$container_name:$version_tag
+
+if [ $? -eq 0 ]; then
+  echo "Operation completed successfully!"
+else
+  echo "Operation failed."
+fi

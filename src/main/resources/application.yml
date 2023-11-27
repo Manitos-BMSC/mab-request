@@ -6,11 +6,11 @@ spring:
       max-file-size: 1000MB   # Set your desired maximum file size here
       max-request-size: 1000MB  # Set the maximum request size here if needed
   rabbitmq:
-    host: ${RABBITMQ_HOST:192.241.149.226}
-    port: ${RABBITMQ_PORT:5672}
-    username: ${RABBITMQ_USERNAME:admin}
-    password: ${RABBITMQ_SECRET_KEY:lEtfbOBZDtAg4v7}
-    virtual-host: ${RABBITMQ_HOST:"/"}
+    host: 192.241.149.226
+    port: 5672
+    username: admin
+    password: lEtfbOBZDtAg4v7
+    virtual-host: "/"
   datasource:
     driver-class-name: org.postgresql.Driver
     username: ${POSTGRES_USERNAME:postgres}
@@ -50,7 +50,9 @@ management:
 security-constraints:
   constraints:
     - auth-roles:
-        - permitAll
+        - paciente
+        - doctorJefe
+        - doctor
       security-collections:
         - name: registroDePacientes
           patterns:

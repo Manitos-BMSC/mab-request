@@ -1,0 +1,602 @@
+2023-11-26 09:27:42.858-0400 [main]  INFO [mab-schedule,,] 8060 --- [c.c.c.ConfigServicePropertySourceLocator] : Fetching config from server at : http://localhost:8888
+2023-11-26 09:27:43.502-0400 [main]  INFO [mab-schedule,,] 8060 --- [c.c.c.ConfigServicePropertySourceLocator] : Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/mab-schedule/prod": Connection refused: no further information. Will be trying the next url if available
+2023-11-26 09:27:43.503-0400 [main]  WARN [mab-schedule,,] 8060 --- [c.c.c.ConfigServicePropertySourceLocator] : Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/mab-schedule/prod": Connection refused: no further information
+2023-11-26 09:27:43.522-0400 [main]  INFO [mab-schedule,,] 8060 --- [b.e.u.m.m.MabScheduleApplication        ] : No active profile set, falling back to 1 default profile: "default"
+2023-11-26 09:27:45.489-0400 [main]  INFO [mab-schedule,,] 8060 --- [.s.d.r.c.RepositoryConfigurationDelegate] : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-26 09:27:45.782-0400 [main]  INFO [mab-schedule,,] 8060 --- [.s.d.r.c.RepositoryConfigurationDelegate] : Finished Spring Data repository scanning in 265 ms. Found 11 JPA repository interfaces.
+2023-11-26 09:27:46.186-0400 [main]  INFO [mab-schedule,,] 8060 --- [o.s.cloud.context.scope.GenericScope    ] : BeanFactory id=b5a807c7-182d-34be-9199-cdad53a132eb
+2023-11-26 09:27:46.381-0400 [main]  INFO [mab-schedule,,] 8060 --- [trationDelegate$BeanPostProcessorChecker] : Bean 'bo.edu.ucb.mabschedule.mabschedule.service.FileUploaderService' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-11-26 09:27:46.384-0400 [main]  INFO [mab-schedule,,] 8060 --- [trationDelegate$BeanPostProcessorChecker] : Bean 'bo.edu.ucb.mabschedule.mabschedule.service.KeycloakTokenService' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-11-26 09:27:46.888-0400 [main]  INFO [mab-schedule,,] 8060 --- [o.s.b.w.embedded.tomcat.TomcatWebServer ] : Tomcat initialized with port(s): 8013 (http)
+2023-11-26 09:27:46.907-0400 [main]  INFO [mab-schedule,,] 8060 --- [o.apache.catalina.core.StandardService  ] : Starting service [Tomcat]
+2023-11-26 09:27:46.907-0400 [main]  INFO [mab-schedule,,] 8060 --- [o.apache.catalina.core.StandardEngine   ] : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2023-11-26 09:27:47.036-0400 [main]  INFO [mab-schedule,,] 8060 --- [o.a.c.c.C.[Tomcat].[localhost].[/]      ] : Initializing Spring embedded WebApplicationContext
+2023-11-26 09:27:47.036-0400 [main]  INFO [mab-schedule,,] 8060 --- [w.s.c.ServletWebServerApplicationContext] : Root WebApplicationContext: initialization completed in 3467 ms
+2023-11-26 09:27:47.850-0400 [main]  INFO [mab-schedule,,] 8060 --- [o.hibernate.jpa.internal.util.LogHelper ] : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-26 09:27:47.974-0400 [main]  INFO [mab-schedule,,] 8060 --- [org.hibernate.Version                   ] : HHH000412: Hibernate ORM core version 6.2.13.Final
+2023-11-26 09:27:47.977-0400 [main]  INFO [mab-schedule,,] 8060 --- [org.hibernate.cfg.Environment           ] : HHH000406: Using bytecode reflection optimizer
+2023-11-26 09:27:48.500-0400 [main]  INFO [mab-schedule,,] 8060 --- [o.s.o.j.p.SpringPersistenceUnitInfo     ] : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-11-26 09:27:48.611-0400 [main]  INFO [mab-schedule,,] 8060 --- [com.zaxxer.hikari.HikariDataSource      ] : HikariPool-1 - Starting...
+2023-11-26 09:27:50.546-0400 [main]  INFO [mab-schedule,,] 8060 --- [com.zaxxer.hikari.pool.HikariPool       ] : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@23ee92df
+2023-11-26 09:27:50.551-0400 [main]  INFO [mab-schedule,,] 8060 --- [com.zaxxer.hikari.HikariDataSource      ] : HikariPool-1 - Start completed.
+2023-11-26 09:27:50.824-0400 [main]  WARN [mab-schedule,,] 8060 --- [org.hibernate.orm.deprecation           ] : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2023-11-26 09:27:53.115-0400 [main]  INFO [mab-schedule,,] 8060 --- [o.h.e.t.j.p.i.JtaPlatformInitiator      ] : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2023-11-26 09:27:53.570-0400 [main]  INFO [mab-schedule,,] 8060 --- [j.LocalContainerEntityManagerFactoryBean] : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-26 09:27:54.338-0400 [main]  INFO [mab-schedule,,] 8060 --- [o.s.d.j.r.query.QueryEnhancerFactory    ] : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-11-26 09:27:55.282-0400 [main]  WARN [mab-schedule,,] 8060 --- [JpaBaseConfiguration$JpaWebConfiguration] : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-26 09:27:55.475-0400 [main]  INFO [mab-schedule,,] 8060 --- [o.s.c.openfeign.FeignClientFactoryBean  ] : For 'mab-file-uploader' URL not provided. Will try picking an instance via load-balancing.
+2023-11-26 09:27:55.907-0400 [main]  INFO [mab-schedule,,] 8060 --- [b.e.u.m.m.c.GlobalSecurityConfiguration ] : securityConstraints: [SecurityConstraint{authRoles=[paciente], securityCollections=[SecurityCollection{name=appointments-for-patient, patterns=[/api/v1/appointment/patient/**], methods=[GET]}]}, SecurityConstraint{authRoles=[doctor], securityCollections=[SecurityCollection{name=appointment, patterns=[/api/v1/appointment/patient/**], methods=[POST]}]}, SecurityConstraint{authRoles=[permitAll], securityCollections=[SecurityCollection{name=periods, patterns=[/api/v1/period/periods], methods=[]}]}, SecurityConstraint{authRoles=[permitAll], securityCollections=[SecurityCollection{name=schedule-doctor, patterns=[/api/v1/schedule-doctor/**], methods=[GET]}]}, SecurityConstraint{authRoles=[permitAll], securityCollections=[SecurityCollection{name=schedule-doctor-doctor, patterns=[/api/v1/schedule-doctor/doctor/**], methods=[GET]}]}, SecurityConstraint{authRoles=[doctorJefe, doctor], securityCollections=[SecurityCollection{name=unavailable-schedule, patterns=[/api/v1/schedule-doctor/unavailable-schedule/**], methods=[POST]}]}, SecurityConstraint{authRoles=[permitAll], securityCollections=[SecurityCollection{name=unavailable-schedule, patterns=[/api/v1/schedule-doctor/unavailable-schedule/**], methods=[GET]}]}, SecurityConstraint{authRoles=[doctorJefe, doctor], securityCollections=[SecurityCollection{name=appointments-for-doctor, patterns=[/api/v1/appointment/doctor/**], methods=[GET]}]}]
+2023-11-26 09:27:55.919-0400 [main]  INFO [mab-schedule,,] 8060 --- [b.e.u.m.m.c.GlobalSecurityConfiguration ] : name: appointments-for-patient patterns: [/api/v1/appointment/patient/**] configuration: [paciente] with methods: [GET]
+2023-11-26 09:27:56.553-0400 [main]  INFO [mab-schedule,,] 8060 --- [o.s.b.a.e.web.EndpointLinksResolver     ] : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-11-26 09:27:56.575-0400 [main]  INFO [mab-schedule,,] 8060 --- [b.e.u.m.m.c.GlobalSecurityConfiguration ] : name: appointment patterns: [/api/v1/appointment/patient/**] configuration: [doctor] with methods: [POST]
+2023-11-26 09:27:56.576-0400 [main]  INFO [mab-schedule,,] 8060 --- [b.e.u.m.m.c.GlobalSecurityConfiguration ] : name: periods patterns: [/api/v1/period/periods] configuration: permitAll with no methods
+2023-11-26 09:27:56.578-0400 [main]  INFO [mab-schedule,,] 8060 --- [b.e.u.m.m.c.GlobalSecurityConfiguration ] : name: schedule-doctor patterns: [/api/v1/schedule-doctor/**] configuration: permitAll with methods: [GET]
+2023-11-26 09:27:56.580-0400 [main]  INFO [mab-schedule,,] 8060 --- [b.e.u.m.m.c.GlobalSecurityConfiguration ] : name: schedule-doctor-doctor patterns: [/api/v1/schedule-doctor/doctor/**] configuration: permitAll with methods: [GET]
+2023-11-26 09:27:56.582-0400 [main]  INFO [mab-schedule,,] 8060 --- [b.e.u.m.m.c.GlobalSecurityConfiguration ] : name: unavailable-schedule patterns: [/api/v1/schedule-doctor/unavailable-schedule/**] configuration:[doctorJefe, doctor]with methods: [POST]
+2023-11-26 09:27:56.582-0400 [main]  INFO [mab-schedule,,] 8060 --- [b.e.u.m.m.c.GlobalSecurityConfiguration ] : name: unavailable-schedule patterns: [/api/v1/schedule-doctor/unavailable-schedule/**] configuration: permitAll with methods: [GET]
+2023-11-26 09:27:56.582-0400 [main]  INFO [mab-schedule,,] 8060 --- [b.e.u.m.m.c.GlobalSecurityConfiguration ] : name: appointments-for-doctor patterns: [/api/v1/appointment/doctor/**] configuration:[doctorJefe, doctor]with methods: [GET]
+2023-11-26 09:27:56.778-0400 [main]  INFO [mab-schedule,,] 8060 --- [o.s.s.web.DefaultSecurityFilterChain    ] : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@198cf325, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@72cdb111, org.springframework.security.web.context.SecurityContextHolderFilter@4ee5d723, org.springframework.security.web.header.HeaderWriterFilter@66b1f207, org.springframework.security.web.csrf.CsrfFilter@10e7192, org.springframework.security.web.authentication.logout.LogoutFilter@1ad2e962, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@35e92c45, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1e25f6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1cf8d43b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@eba3009, org.springframework.security.web.session.SessionManagementFilter@35929bc7, org.springframework.security.web.access.ExceptionTranslationFilter@6cbd57fa, org.springframework.security.web.access.intercept.AuthorizationFilter@33d57d51]
+2023-11-26 09:27:57.356-0400 [main]  INFO [mab-schedule,,] 8060 --- [DiscoveryClientOptionalArgsConfiguration] : Eureka HTTP Client uses RestTemplate.
+2023-11-26 09:27:57.493-0400 [main]  WARN [mab-schedule,,] 8060 --- [iguration$LoadBalancerCaffeineWarnLogger] : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-11-26 09:27:58.162-0400 [main]  INFO [mab-schedule,,] 8060 --- [o.s.c.n.eureka.InstanceInfoFactory      ] : Setting initial instance status as: STARTING
+2023-11-26 09:27:58.201-0400 [main]  INFO [mab-schedule,,] 8060 --- [com.netflix.discovery.DiscoveryClient   ] : Initializing Eureka in region us-east-1
+2023-11-26 09:27:58.207-0400 [main]  INFO [mab-schedule,,] 8060 --- [c.n.d.s.r.aws.ConfigClusterResolver     ] : Resolving eureka endpoints via configuration
+2023-11-26 09:27:58.230-0400 [main]  INFO [mab-schedule,,] 8060 --- [com.netflix.discovery.DiscoveryClient   ] : Disable delta property : false
+2023-11-26 09:27:58.231-0400 [main]  INFO [mab-schedule,,] 8060 --- [com.netflix.discovery.DiscoveryClient   ] : Single vip registry refresh property : null
+2023-11-26 09:27:58.232-0400 [main]  INFO [mab-schedule,,] 8060 --- [com.netflix.discovery.DiscoveryClient   ] : Force full registry fetch : false
+2023-11-26 09:27:58.232-0400 [main]  INFO [mab-schedule,,] 8060 --- [com.netflix.discovery.DiscoveryClient   ] : Application is null : false
+2023-11-26 09:27:58.233-0400 [main]  INFO [mab-schedule,,] 8060 --- [com.netflix.discovery.DiscoveryClient   ] : Registered Applications size is zero : true
+2023-11-26 09:27:58.233-0400 [main]  INFO [mab-schedule,,] 8060 --- [com.netflix.discovery.DiscoveryClient   ] : Application version is -1: true
+2023-11-26 09:27:58.234-0400 [main]  INFO [mab-schedule,,] 8060 --- [com.netflix.discovery.DiscoveryClient   ] : Getting all instance registry info from the eureka server
+2023-11-26 09:27:59.436-0400 [main]  INFO [mab-schedule,,] 8060 --- [c.n.d.s.t.d.RedirectingEurekaHttpClient ] : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on GET request for "http://localhost:8761/eureka/apps/": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8761/eureka/apps/": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:888)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:868)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:764)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:646)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.getApplicationsInternal(RestTemplateEurekaHttpClient.java:149)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.getApplications(RestTemplateEurekaHttpClient.java:139)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$6.execute(EurekaHttpClientDecorator.java:137)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$6.execute(EurekaHttpClientDecorator.java:137)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$6.execute(EurekaHttpClientDecorator.java:137)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
+	at com.netflix.discovery.DiscoveryClient.getAndStoreFullRegistry(DiscoveryClient.java:1045)
+	at com.netflix.discovery.DiscoveryClient.fetchRegistry(DiscoveryClient.java:958)
+	at com.netflix.discovery.DiscoveryClient.<init>(DiscoveryClient.java:396)
+	at com.netflix.discovery.DiscoveryClient.<init>(DiscoveryClient.java:247)
+	at com.netflix.discovery.DiscoveryClient.<init>(DiscoveryClient.java:242)
+	at org.springframework.cloud.netflix.eureka.CloudEurekaClient.<init>(CloudEurekaClient.java:68)
+	at org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration$RefreshableEurekaClientConfiguration.eurekaClient(EurekaClientAutoConfiguration.java:320)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:139)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:650)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:642)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1332)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1162)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:560)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$1(AbstractBeanFactory.java:364)
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.getBean(GenericScope.java:375)
+	at org.springframework.cloud.context.scope.GenericScope.get(GenericScope.java:179)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:361)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.aop.target.SimpleBeanTargetSource.getTarget(SimpleBeanTargetSource.java:35)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaRegistration.getTargetObject(EurekaRegistration.java:128)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaRegistration.getEurekaClient(EurekaRegistration.java:116)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:281)
+	at org.springframework.cloud.context.scope.GenericScope$LockedScopedProxyFactoryBean.invoke(GenericScope.java:482)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:751)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:703)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaRegistration$$SpringCGLIB$$0.getEurekaClient(<generated>)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry.maybeInitializeClient(EurekaServiceRegistry.java:54)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry.register(EurekaServiceRegistry.java:38)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration.start(EurekaAutoServiceRegistration.java:83)
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:179)
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:357)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:156)
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:124)
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:966)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:619)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:738)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:440)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
+	at bo.edu.ucb.mabschedule.mabschedule.MabScheduleApplication.main(MabScheduleApplication.java:14)
+Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:554)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:639)
+	at org.apache.hc.client5.http.socket.PlainConnectionSocketFactory.lambda$connectSocket$0(PlainConnectionSocketFactory.java:85)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.apache.hc.client5.http.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:84)
+	at org.apache.hc.client5.http.socket.ConnectionSocketFactory.connectSocket(ConnectionSocketFactory.java:113)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:181)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:447)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:162)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:172)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:142)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:96)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:152)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:115)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:170)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:106)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:93)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:101)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$0(RestTemplateTransportClientFactory.java:143)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:87)
+	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:71)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:862)
+	... 67 more
+
+2023-11-26 09:27:59.439-0400 [main]  WARN [mab-schedule,,] 8060 --- [c.n.d.s.t.d.RetryableEurekaHttpClient   ] : Request execution failed with message: I/O error on GET request for "http://localhost:8761/eureka/apps/": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-11-26 09:27:59.440-0400 [main]  INFO [mab-schedule,,] 8060 --- [com.netflix.discovery.DiscoveryClient   ] : DiscoveryClient_MAB-SCHEDULE/PC:mab-schedule:8013 - was unable to refresh its cache! This periodic background refresh will be retried in 30 seconds. status = Cannot execute request on any known server stacktrace = com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$6.execute(EurekaHttpClientDecorator.java:137)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
+	at com.netflix.discovery.DiscoveryClient.getAndStoreFullRegistry(DiscoveryClient.java:1045)
+	at com.netflix.discovery.DiscoveryClient.fetchRegistry(DiscoveryClient.java:958)
+	at com.netflix.discovery.DiscoveryClient.<init>(DiscoveryClient.java:396)
+	at com.netflix.discovery.DiscoveryClient.<init>(DiscoveryClient.java:247)
+	at com.netflix.discovery.DiscoveryClient.<init>(DiscoveryClient.java:242)
+	at org.springframework.cloud.netflix.eureka.CloudEurekaClient.<init>(CloudEurekaClient.java:68)
+	at org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration$RefreshableEurekaClientConfiguration.eurekaClient(EurekaClientAutoConfiguration.java:320)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:139)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:650)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:642)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1332)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1162)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:560)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$1(AbstractBeanFactory.java:364)
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.getBean(GenericScope.java:375)
+	at org.springframework.cloud.context.scope.GenericScope.get(GenericScope.java:179)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:361)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.aop.target.SimpleBeanTargetSource.getTarget(SimpleBeanTargetSource.java:35)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaRegistration.getTargetObject(EurekaRegistration.java:128)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaRegistration.getEurekaClient(EurekaRegistration.java:116)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:281)
+	at org.springframework.cloud.context.scope.GenericScope$LockedScopedProxyFactoryBean.invoke(GenericScope.java:482)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:751)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:703)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaRegistration$$SpringCGLIB$$0.getEurekaClient(<generated>)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry.maybeInitializeClient(EurekaServiceRegistry.java:54)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry.register(EurekaServiceRegistry.java:38)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration.start(EurekaAutoServiceRegistration.java:83)
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:179)
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:357)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:156)
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:124)
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:966)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:619)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:738)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:440)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
+	at bo.edu.ucb.mabschedule.mabschedule.MabScheduleApplication.main(MabScheduleApplication.java:14)
+
+2023-11-26 09:27:59.441-0400 [main]  INFO [mab-schedule,,] 8060 --- [com.netflix.discovery.DiscoveryClient   ] : Initial registry fetch from primary servers failed
+2023-11-26 09:27:59.442-0400 [main]  WARN [mab-schedule,,] 8060 --- [com.netflix.discovery.DiscoveryClient   ] : Using default backup registry implementation which does not do anything.
+2023-11-26 09:27:59.443-0400 [main]  INFO [mab-schedule,,] 8060 --- [com.netflix.discovery.DiscoveryClient   ] : Initial registry fetch from backup servers failed
+2023-11-26 09:27:59.446-0400 [main]  INFO [mab-schedule,,] 8060 --- [com.netflix.discovery.DiscoveryClient   ] : Starting heartbeat executor: renew interval is: 30
+2023-11-26 09:27:59.453-0400 [main]  INFO [mab-schedule,,] 8060 --- [c.n.discovery.InstanceInfoReplicator    ] : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2023-11-26 09:27:59.468-0400 [main]  INFO [mab-schedule,,] 8060 --- [com.netflix.discovery.DiscoveryClient   ] : Discovery Client initialized at timestamp 1701005279465 with initial instances count: 0
+2023-11-26 09:27:59.473-0400 [main]  INFO [mab-schedule,,] 8060 --- [o.s.c.n.e.s.EurekaServiceRegistry       ] : Registering application MAB-SCHEDULE with eureka with status UP
+2023-11-26 09:27:59.474-0400 [main]  INFO [mab-schedule,,] 8060 --- [com.netflix.discovery.DiscoveryClient   ] : Saw local status change event StatusChangeEvent [timestamp=1701005279474, current=UP, previous=STARTING]
+2023-11-26 09:27:59.477-0400 [DiscoveryClient-InstanceInfoReplicator-0]  INFO [mab-schedule,,] 8060 --- [com.netflix.discovery.DiscoveryClient   ] : DiscoveryClient_MAB-SCHEDULE/PC:mab-schedule:8013: registering service...
+2023-11-26 09:27:59.550-0400 [main]  INFO [mab-schedule,,] 8060 --- [o.s.b.w.embedded.tomcat.TomcatWebServer ] : Tomcat started on port(s): 8013 (http) with context path ''
+2023-11-26 09:27:59.551-0400 [main]  INFO [mab-schedule,,] 8060 --- [.s.c.n.e.s.EurekaAutoServiceRegistration] : Updating port to 8013
+2023-11-26 09:27:59.585-0400 [main]  INFO [mab-schedule,,] 8060 --- [b.e.u.m.m.MabScheduleApplication        ] : Started MabScheduleApplication in 18.62 seconds (process running for 19.523)
+2023-11-26 09:28:00.130-0400 [RMI TCP Connection(5)-192.168.0.102]  INFO [mab-schedule,,] 8060 --- [o.a.c.c.C.[Tomcat].[localhost].[/]      ] : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-26 09:28:00.130-0400 [RMI TCP Connection(5)-192.168.0.102]  INFO [mab-schedule,,] 8060 --- [o.s.web.servlet.DispatcherServlet       ] : Initializing Servlet 'dispatcherServlet'
+2023-11-26 09:28:00.133-0400 [RMI TCP Connection(5)-192.168.0.102]  INFO [mab-schedule,,] 8060 --- [o.s.web.servlet.DispatcherServlet       ] : Completed initialization in 3 ms
+2023-11-26 09:28:00.578-0400 [DiscoveryClient-InstanceInfoReplicator-0]  INFO [mab-schedule,,] 8060 --- [c.n.d.s.t.d.RedirectingEurekaHttpClient ] : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on POST request for "http://localhost:8761/eureka/apps/MAB-SCHEDULE": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:8761/eureka/apps/MAB-SCHEDULE": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:888)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:868)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:764)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:646)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.register(RestTemplateEurekaHttpClient.java:81)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:820)
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121)
+	at com.netflix.discovery.InstanceInfoReplicator$1.run(InstanceInfoReplicator.java:101)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:554)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:639)
+	at org.apache.hc.client5.http.socket.PlainConnectionSocketFactory.lambda$connectSocket$0(PlainConnectionSocketFactory.java:85)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.apache.hc.client5.http.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:84)
+	at org.apache.hc.client5.http.socket.ConnectionSocketFactory.connectSocket(ConnectionSocketFactory.java:113)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:181)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:447)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:162)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:172)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:142)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:96)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:152)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:115)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:170)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:106)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:93)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:101)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$0(RestTemplateTransportClientFactory.java:143)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:87)
+	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:71)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:862)
+	... 22 more
+
+2023-11-26 09:28:00.578-0400 [DiscoveryClient-InstanceInfoReplicator-0]  WARN [mab-schedule,,] 8060 --- [c.n.d.s.t.d.RetryableEurekaHttpClient   ] : Request execution failed with message: I/O error on POST request for "http://localhost:8761/eureka/apps/MAB-SCHEDULE": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-11-26 09:28:00.578-0400 [DiscoveryClient-InstanceInfoReplicator-0]  WARN [mab-schedule,,] 8060 --- [com.netflix.discovery.DiscoveryClient   ] : DiscoveryClient_MAB-SCHEDULE/PC:mab-schedule:8013 - registration failed Cannot execute request on any known server
+
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:820)
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121)
+	at com.netflix.discovery.InstanceInfoReplicator$1.run(InstanceInfoReplicator.java:101)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+2023-11-26 09:28:00.580-0400 [DiscoveryClient-InstanceInfoReplicator-0]  WARN [mab-schedule,,] 8060 --- [c.n.discovery.InstanceInfoReplicator    ] : There was a problem with the instance info replicator
+
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:820)
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121)
+	at com.netflix.discovery.InstanceInfoReplicator$1.run(InstanceInfoReplicator.java:101)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+2023-11-26 09:28:29.446-0400 [DiscoveryClient-CacheRefreshExecutor-0]  INFO [mab-schedule,,] 8060 --- [com.netflix.discovery.DiscoveryClient   ] : Disable delta property : false
+2023-11-26 09:28:29.447-0400 [DiscoveryClient-CacheRefreshExecutor-0]  INFO [mab-schedule,,] 8060 --- [com.netflix.discovery.DiscoveryClient   ] : Single vip registry refresh property : null
+2023-11-26 09:28:29.448-0400 [DiscoveryClient-CacheRefreshExecutor-0]  INFO [mab-schedule,,] 8060 --- [com.netflix.discovery.DiscoveryClient   ] : Force full registry fetch : false
+2023-11-26 09:28:29.448-0400 [DiscoveryClient-CacheRefreshExecutor-0]  INFO [mab-schedule,,] 8060 --- [com.netflix.discovery.DiscoveryClient   ] : Application is null : false
+2023-11-26 09:28:29.448-0400 [DiscoveryClient-CacheRefreshExecutor-0]  INFO [mab-schedule,,] 8060 --- [com.netflix.discovery.DiscoveryClient   ] : Registered Applications size is zero : true
+2023-11-26 09:28:29.448-0400 [DiscoveryClient-CacheRefreshExecutor-0]  INFO [mab-schedule,,] 8060 --- [com.netflix.discovery.DiscoveryClient   ] : Application version is -1: true
+2023-11-26 09:28:29.448-0400 [DiscoveryClient-CacheRefreshExecutor-0]  INFO [mab-schedule,,] 8060 --- [com.netflix.discovery.DiscoveryClient   ] : Getting all instance registry info from the eureka server
+2023-11-26 09:28:29.825-0400 [DiscoveryClient-HeartbeatExecutor-0]  INFO [mab-schedule,,] 8060 --- [com.netflix.discovery.DiscoveryClient   ] : DiscoveryClient_MAB-SCHEDULE/PC:mab-schedule:8013 - Re-registering apps/MAB-SCHEDULE
+2023-11-26 09:28:29.825-0400 [DiscoveryClient-HeartbeatExecutor-0]  INFO [mab-schedule,,] 8060 --- [com.netflix.discovery.DiscoveryClient   ] : DiscoveryClient_MAB-SCHEDULE/PC:mab-schedule:8013: registering service...
+2023-11-26 09:28:29.837-0400 [DiscoveryClient-CacheRefreshExecutor-0]  INFO [mab-schedule,,] 8060 --- [com.netflix.discovery.DiscoveryClient   ] : The response status is 200
+2023-11-26 09:28:29.930-0400 [DiscoveryClient-HeartbeatExecutor-0]  INFO [mab-schedule,,] 8060 --- [com.netflix.discovery.DiscoveryClient   ] : DiscoveryClient_MAB-SCHEDULE/PC:mab-schedule:8013 - registration status: 204
+2023-11-26 09:28:38.866-0400 [main]  INFO [mab-schedule,,] 5784 --- [c.c.c.ConfigServicePropertySourceLocator] : Fetching config from server at : http://localhost:8888
+2023-11-26 09:28:39.468-0400 [main]  INFO [mab-schedule,,] 5784 --- [c.c.c.ConfigServicePropertySourceLocator] : Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/mab-schedule/prod": Connection refused: no further information. Will be trying the next url if available
+2023-11-26 09:28:39.469-0400 [main]  WARN [mab-schedule,,] 5784 --- [c.c.c.ConfigServicePropertySourceLocator] : Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/mab-schedule/prod": Connection refused: no further information
+2023-11-26 09:28:39.476-0400 [main]  INFO [mab-schedule,,] 5784 --- [b.e.u.m.m.MabScheduleApplication        ] : No active profile set, falling back to 1 default profile: "default"
+2023-11-26 09:28:40.219-0400 [main]  INFO [mab-schedule,,] 5784 --- [.s.d.r.c.RepositoryConfigurationDelegate] : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-26 09:28:40.370-0400 [main]  INFO [mab-schedule,,] 5784 --- [.s.d.r.c.RepositoryConfigurationDelegate] : Finished Spring Data repository scanning in 144 ms. Found 11 JPA repository interfaces.
+2023-11-26 09:28:40.614-0400 [main]  INFO [mab-schedule,,] 5784 --- [o.s.cloud.context.scope.GenericScope    ] : BeanFactory id=b5a807c7-182d-34be-9199-cdad53a132eb
+2023-11-26 09:28:40.689-0400 [main]  INFO [mab-schedule,,] 5784 --- [trationDelegate$BeanPostProcessorChecker] : Bean 'bo.edu.ucb.mabschedule.mabschedule.service.FileUploaderService' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-11-26 09:28:40.690-0400 [main]  INFO [mab-schedule,,] 5784 --- [trationDelegate$BeanPostProcessorChecker] : Bean 'bo.edu.ucb.mabschedule.mabschedule.service.KeycloakTokenService' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-11-26 09:28:40.929-0400 [main]  INFO [mab-schedule,,] 5784 --- [o.s.b.w.embedded.tomcat.TomcatWebServer ] : Tomcat initialized with port(s): 8013 (http)
+2023-11-26 09:28:40.944-0400 [main]  INFO [mab-schedule,,] 5784 --- [o.apache.catalina.core.StandardService  ] : Starting service [Tomcat]
+2023-11-26 09:28:40.944-0400 [main]  INFO [mab-schedule,,] 5784 --- [o.apache.catalina.core.StandardEngine   ] : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2023-11-26 09:28:41.055-0400 [main]  INFO [mab-schedule,,] 5784 --- [o.a.c.c.C.[Tomcat].[localhost].[/]      ] : Initializing Spring embedded WebApplicationContext
+2023-11-26 09:28:41.056-0400 [main]  INFO [mab-schedule,,] 5784 --- [w.s.c.ServletWebServerApplicationContext] : Root WebApplicationContext: initialization completed in 1553 ms
+2023-11-26 09:28:41.494-0400 [main]  INFO [mab-schedule,,] 5784 --- [o.hibernate.jpa.internal.util.LogHelper ] : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-26 09:28:41.543-0400 [main]  INFO [mab-schedule,,] 5784 --- [org.hibernate.Version                   ] : HHH000412: Hibernate ORM core version 6.2.13.Final
+2023-11-26 09:28:41.545-0400 [main]  INFO [mab-schedule,,] 5784 --- [org.hibernate.cfg.Environment           ] : HHH000406: Using bytecode reflection optimizer
+2023-11-26 09:28:41.775-0400 [main]  INFO [mab-schedule,,] 5784 --- [o.s.o.j.p.SpringPersistenceUnitInfo     ] : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-11-26 09:28:41.803-0400 [main]  INFO [mab-schedule,,] 5784 --- [com.zaxxer.hikari.HikariDataSource      ] : HikariPool-1 - Starting...
+2023-11-26 09:28:43.386-0400 [main]  INFO [mab-schedule,,] 5784 --- [com.zaxxer.hikari.pool.HikariPool       ] : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@e2ee348
+2023-11-26 09:28:43.390-0400 [main]  INFO [mab-schedule,,] 5784 --- [com.zaxxer.hikari.HikariDataSource      ] : HikariPool-1 - Start completed.
+2023-11-26 09:28:43.591-0400 [main]  WARN [mab-schedule,,] 5784 --- [org.hibernate.orm.deprecation           ] : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2023-11-26 09:28:45.012-0400 [main]  INFO [mab-schedule,,] 5784 --- [o.h.e.t.j.p.i.JtaPlatformInitiator      ] : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2023-11-26 09:28:45.251-0400 [main]  INFO [mab-schedule,,] 5784 --- [j.LocalContainerEntityManagerFactoryBean] : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-26 09:28:45.491-0400 [main]  INFO [mab-schedule,,] 5784 --- [o.s.d.j.r.query.QueryEnhancerFactory    ] : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-11-26 09:28:45.806-0400 [main]  WARN [mab-schedule,,] 5784 --- [JpaBaseConfiguration$JpaWebConfiguration] : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-26 09:28:45.856-0400 [main]  INFO [mab-schedule,,] 5784 --- [o.s.c.openfeign.FeignClientFactoryBean  ] : For 'mab-file-uploader' URL not provided. Will try picking an instance via load-balancing.
+2023-11-26 09:28:46.044-0400 [main]  INFO [mab-schedule,,] 5784 --- [b.e.u.m.m.c.GlobalSecurityConfiguration ] : securityConstraints: [SecurityConstraint{authRoles=[paciente], securityCollections=[SecurityCollection{name=appointments-for-patient, patterns=[/api/v1/appointment/patient/**], methods=[GET]}]}, SecurityConstraint{authRoles=[doctor], securityCollections=[SecurityCollection{name=appointment, patterns=[/api/v1/appointment/patient/**], methods=[POST]}]}, SecurityConstraint{authRoles=[permitAll], securityCollections=[SecurityCollection{name=periods, patterns=[/api/v1/period/periods], methods=[]}]}, SecurityConstraint{authRoles=[permitAll], securityCollections=[SecurityCollection{name=schedule-doctor, patterns=[/api/v1/schedule-doctor/**], methods=[GET]}]}, SecurityConstraint{authRoles=[permitAll], securityCollections=[SecurityCollection{name=schedule-doctor-doctor, patterns=[/api/v1/schedule-doctor/doctor/**], methods=[GET]}]}, SecurityConstraint{authRoles=[doctorJefe, doctor], securityCollections=[SecurityCollection{name=unavailable-schedule, patterns=[/api/v1/schedule-doctor/unavailable-schedule/**], methods=[POST]}]}, SecurityConstraint{authRoles=[permitAll], securityCollections=[SecurityCollection{name=unavailable-schedule, patterns=[/api/v1/schedule-doctor/unavailable-schedule/**], methods=[GET]}]}, SecurityConstraint{authRoles=[doctorJefe, doctor], securityCollections=[SecurityCollection{name=appointments-for-doctor, patterns=[/api/v1/appointment/doctor/**], methods=[GET]}]}]
+2023-11-26 09:28:46.048-0400 [main]  INFO [mab-schedule,,] 5784 --- [b.e.u.m.m.c.GlobalSecurityConfiguration ] : name: appointments-for-patient patterns: [/api/v1/appointment/patient/**] configuration: [paciente] with methods: [GET]
+2023-11-26 09:28:46.344-0400 [main]  INFO [mab-schedule,,] 5784 --- [o.s.b.a.e.web.EndpointLinksResolver     ] : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-11-26 09:28:46.358-0400 [main]  INFO [mab-schedule,,] 5784 --- [b.e.u.m.m.c.GlobalSecurityConfiguration ] : name: appointment patterns: [/api/v1/appointment/patient/**] configuration: [doctor] with methods: [POST]
+2023-11-26 09:28:46.359-0400 [main]  INFO [mab-schedule,,] 5784 --- [b.e.u.m.m.c.GlobalSecurityConfiguration ] : name: periods patterns: [/api/v1/period/periods] configuration: permitAll with no methods
+2023-11-26 09:28:46.360-0400 [main]  INFO [mab-schedule,,] 5784 --- [b.e.u.m.m.c.GlobalSecurityConfiguration ] : name: schedule-doctor patterns: [/api/v1/schedule-doctor/**] configuration: permitAll with methods: [GET]
+2023-11-26 09:28:46.360-0400 [main]  INFO [mab-schedule,,] 5784 --- [b.e.u.m.m.c.GlobalSecurityConfiguration ] : name: schedule-doctor-doctor patterns: [/api/v1/schedule-doctor/doctor/**] configuration: permitAll with methods: [GET]
+2023-11-26 09:28:46.360-0400 [main]  INFO [mab-schedule,,] 5784 --- [b.e.u.m.m.c.GlobalSecurityConfiguration ] : name: unavailable-schedule patterns: [/api/v1/schedule-doctor/unavailable-schedule/**] configuration:[doctorJefe, doctor]with methods: [POST]
+2023-11-26 09:28:46.360-0400 [main]  INFO [mab-schedule,,] 5784 --- [b.e.u.m.m.c.GlobalSecurityConfiguration ] : name: unavailable-schedule patterns: [/api/v1/schedule-doctor/unavailable-schedule/**] configuration: permitAll with methods: [GET]
+2023-11-26 09:28:46.361-0400 [main]  INFO [mab-schedule,,] 5784 --- [b.e.u.m.m.c.GlobalSecurityConfiguration ] : name: appointments-for-doctor patterns: [/api/v1/appointment/doctor/**] configuration:[doctorJefe, doctor]with methods: [GET]
+2023-11-26 09:28:46.428-0400 [main]  INFO [mab-schedule,,] 5784 --- [o.s.s.web.DefaultSecurityFilterChain    ] : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@28ee138c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3683c47f, org.springframework.security.web.context.SecurityContextHolderFilter@6a79a909, org.springframework.security.web.header.HeaderWriterFilter@705a793a, org.springframework.security.web.csrf.CsrfFilter@7006b304, org.springframework.security.web.authentication.logout.LogoutFilter@8937f62, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@482ecb95, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@76d404ab, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7491ccdf, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@84fd359, org.springframework.security.web.session.SessionManagementFilter@52294ab7, org.springframework.security.web.access.ExceptionTranslationFilter@35929bc7, org.springframework.security.web.access.intercept.AuthorizationFilter@35e92c45]
+2023-11-26 09:28:46.726-0400 [main]  INFO [mab-schedule,,] 5784 --- [DiscoveryClientOptionalArgsConfiguration] : Eureka HTTP Client uses RestTemplate.
+2023-11-26 09:28:46.751-0400 [main]  WARN [mab-schedule,,] 5784 --- [iguration$LoadBalancerCaffeineWarnLogger] : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-11-26 09:28:46.832-0400 [main]  INFO [mab-schedule,,] 5784 --- [o.s.c.n.eureka.InstanceInfoFactory      ] : Setting initial instance status as: STARTING
+2023-11-26 09:28:46.864-0400 [main]  INFO [mab-schedule,,] 5784 --- [com.netflix.discovery.DiscoveryClient   ] : Initializing Eureka in region us-east-1
+2023-11-26 09:28:46.867-0400 [main]  INFO [mab-schedule,,] 5784 --- [c.n.d.s.r.aws.ConfigClusterResolver     ] : Resolving eureka endpoints via configuration
+2023-11-26 09:28:46.886-0400 [main]  INFO [mab-schedule,,] 5784 --- [com.netflix.discovery.DiscoveryClient   ] : Disable delta property : false
+2023-11-26 09:28:46.886-0400 [main]  INFO [mab-schedule,,] 5784 --- [com.netflix.discovery.DiscoveryClient   ] : Single vip registry refresh property : null
+2023-11-26 09:28:46.887-0400 [main]  INFO [mab-schedule,,] 5784 --- [com.netflix.discovery.DiscoveryClient   ] : Force full registry fetch : false
+2023-11-26 09:28:46.887-0400 [main]  INFO [mab-schedule,,] 5784 --- [com.netflix.discovery.DiscoveryClient   ] : Application is null : false
+2023-11-26 09:28:46.887-0400 [main]  INFO [mab-schedule,,] 5784 --- [com.netflix.discovery.DiscoveryClient   ] : Registered Applications size is zero : true
+2023-11-26 09:28:46.887-0400 [main]  INFO [mab-schedule,,] 5784 --- [com.netflix.discovery.DiscoveryClient   ] : Application version is -1: true
+2023-11-26 09:28:46.887-0400 [main]  INFO [mab-schedule,,] 5784 --- [com.netflix.discovery.DiscoveryClient   ] : Getting all instance registry info from the eureka server
+2023-11-26 09:28:47.022-0400 [main]  INFO [mab-schedule,,] 5784 --- [com.netflix.discovery.DiscoveryClient   ] : The response status is 200
+2023-11-26 09:28:47.025-0400 [main]  INFO [mab-schedule,,] 5784 --- [com.netflix.discovery.DiscoveryClient   ] : Starting heartbeat executor: renew interval is: 30
+2023-11-26 09:28:47.028-0400 [main]  INFO [mab-schedule,,] 5784 --- [c.n.discovery.InstanceInfoReplicator    ] : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2023-11-26 09:28:47.033-0400 [main]  INFO [mab-schedule,,] 5784 --- [com.netflix.discovery.DiscoveryClient   ] : Discovery Client initialized at timestamp 1701005327032 with initial instances count: 1
+2023-11-26 09:28:47.035-0400 [main]  INFO [mab-schedule,,] 5784 --- [o.s.c.n.e.s.EurekaServiceRegistry       ] : Registering application MAB-SCHEDULE with eureka with status UP
+2023-11-26 09:28:47.035-0400 [main]  INFO [mab-schedule,,] 5784 --- [com.netflix.discovery.DiscoveryClient   ] : Saw local status change event StatusChangeEvent [timestamp=1701005327035, current=UP, previous=STARTING]
+2023-11-26 09:28:47.037-0400 [DiscoveryClient-InstanceInfoReplicator-0]  INFO [mab-schedule,,] 5784 --- [com.netflix.discovery.DiscoveryClient   ] : DiscoveryClient_MAB-SCHEDULE/PC:mab-schedule:8013: registering service...
+2023-11-26 09:28:47.063-0400 [main]  INFO [mab-schedule,,] 5784 --- [o.s.b.w.embedded.tomcat.TomcatWebServer ] : Tomcat started on port(s): 8013 (http) with context path ''
+2023-11-26 09:28:47.064-0400 [main]  INFO [mab-schedule,,] 5784 --- [.s.c.n.e.s.EurekaAutoServiceRegistration] : Updating port to 8013
+2023-11-26 09:28:47.102-0400 [DiscoveryClient-InstanceInfoReplicator-0]  INFO [mab-schedule,,] 5784 --- [com.netflix.discovery.DiscoveryClient   ] : DiscoveryClient_MAB-SCHEDULE/PC:mab-schedule:8013 - registration status: 204
+2023-11-26 09:28:47.113-0400 [main]  INFO [mab-schedule,,] 5784 --- [b.e.u.m.m.MabScheduleApplication        ] : Started MabScheduleApplication in 9.275 seconds (process running for 9.858)
+2023-11-26 09:28:47.637-0400 [RMI TCP Connection(2)-192.168.0.102]  INFO [mab-schedule,,] 5784 --- [o.a.c.c.C.[Tomcat].[localhost].[/]      ] : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-26 09:28:47.637-0400 [RMI TCP Connection(2)-192.168.0.102]  INFO [mab-schedule,,] 5784 --- [o.s.web.servlet.DispatcherServlet       ] : Initializing Servlet 'dispatcherServlet'
+2023-11-26 09:28:47.640-0400 [RMI TCP Connection(2)-192.168.0.102]  INFO [mab-schedule,,] 5784 --- [o.s.web.servlet.DispatcherServlet       ] : Completed initialization in 3 ms
+2023-11-26 09:33:46.931-0400 [AsyncResolver-bootstrap-executor-0]  INFO [mab-schedule,,] 5784 --- [c.n.d.s.r.aws.ConfigClusterResolver     ] : Resolving eureka endpoints via configuration
+2023-11-26 09:36:47.137-0400 [http-nio-8013-exec-3]  INFO [mab-schedule,656349ee6e2ad16701f3a88984d83a56,7e844373f7cb7da5] 5784 --- [b.e.u.m.mabschedule.api.AppointmentApi  ] : getAppointmentForPatient
+2023-11-26 09:36:47.138-0400 [http-nio-8013-exec-3]  INFO [mab-schedule,656349ee6e2ad16701f3a88984d83a56,7e844373f7cb7da5] 5784 --- [b.e.u.m.mabschedule.bl.AppointmentBl    ] : Initializing getAppointmentForPacient
+2023-11-26 09:36:52.188-0400 [http-nio-8013-exec-3]  WARN [mab-schedule,656349ee6e2ad16701f3a88984d83a56,7e844373f7cb7da5] 5784 --- [com.zaxxer.hikari.pool.PoolBase         ] : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@e2ee348 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2023-11-26 09:36:57.193-0400 [http-nio-8013-exec-3]  WARN [mab-schedule,656349ee6e2ad16701f3a88984d83a56,7e844373f7cb7da5] 5784 --- [com.zaxxer.hikari.pool.PoolBase         ] : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@364d0309 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2023-11-26 09:37:02.196-0400 [http-nio-8013-exec-3]  WARN [mab-schedule,656349ee6e2ad16701f3a88984d83a56,7e844373f7cb7da5] 5784 --- [com.zaxxer.hikari.pool.PoolBase         ] : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@2687f449 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2023-11-26 09:37:07.199-0400 [http-nio-8013-exec-3]  WARN [mab-schedule,656349ee6e2ad16701f3a88984d83a56,7e844373f7cb7da5] 5784 --- [com.zaxxer.hikari.pool.PoolBase         ] : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@641c331 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2023-11-26 09:37:12.203-0400 [http-nio-8013-exec-3]  WARN [mab-schedule,656349ee6e2ad16701f3a88984d83a56,7e844373f7cb7da5] 5784 --- [com.zaxxer.hikari.pool.PoolBase         ] : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@68d20607 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2023-11-26 09:37:17.206-0400 [http-nio-8013-exec-3]  WARN [mab-schedule,656349ee6e2ad16701f3a88984d83a56,7e844373f7cb7da5] 5784 --- [com.zaxxer.hikari.pool.PoolBase         ] : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@6ef56b4f (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2023-11-26 09:37:17.209-0400 [http-nio-8013-exec-3]  WARN [mab-schedule,656349ee6e2ad16701f3a88984d83a56,7e844373f7cb7da5] 5784 --- [o.h.engine.jdbc.spi.SqlExceptionHelper  ] : SQL Error: 0, SQLState: 08003
+2023-11-26 09:37:17.210-0400 [http-nio-8013-exec-3] ERROR [mab-schedule,656349ee6e2ad16701f3a88984d83a56,7e844373f7cb7da5] 5784 --- [o.h.engine.jdbc.spi.SqlExceptionHelper  ] : HikariPool-1 - Connection is not available, request timed out after 30057ms.
+2023-11-26 09:37:17.210-0400 [http-nio-8013-exec-3] ERROR [mab-schedule,656349ee6e2ad16701f3a88984d83a56,7e844373f7cb7da5] 5784 --- [o.h.engine.jdbc.spi.SqlExceptionHelper  ] : This connection has been closed.
+2023-11-26 09:37:17.253-0400 [http-nio-8013-exec-3] ERROR [mab-schedule,,] 5784 --- [o.a.c.c.C.[.[.[/].[dispatcherServlet]   ] : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.transaction.CannotCreateTransactionException: Could not open JPA EntityManager for transaction] with root cause
+
+org.postgresql.util.PSQLException: This connection has been closed.
+	at org.postgresql.jdbc.PgConnection.checkClosed(PgConnection.java:993)
+	at org.postgresql.jdbc.PgConnection.setNetworkTimeout(PgConnection.java:1694)
+	at com.zaxxer.hikari.pool.PoolBase.setNetworkTimeout(PoolBase.java:561)
+	at com.zaxxer.hikari.pool.PoolBase.isConnectionDead(PoolBase.java:168)
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:170)
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:146)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:128)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.internal.NonContextualJdbcConnectionAccess.obtainConnection(NonContextualJdbcConnectionAccess.java:38)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.acquireConnectionIfNeeded(LogicalConnectionManagedImpl.java:113)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getPhysicalConnection(LogicalConnectionManagedImpl.java:143)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.beginTransaction(HibernateJpaDialect.java:152)
+	at org.springframework.orm.jpa.JpaTransactionManager.doBegin(JpaTransactionManager.java:420)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.startTransaction(AbstractPlatformTransactionManager.java:400)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.getTransaction(AbstractPlatformTransactionManager.java:373)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.createTransactionIfNecessary(TransactionAspectSupport.java:601)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:244)
+	at jdk.proxy2/jdk.proxy2.$Proxy169.findById(Unknown Source)
+	at bo.edu.ucb.mabschedule.mabschedule.bl.AppointmentBl.getAppointmentForPatient(AppointmentBl.java:166)
+	at bo.edu.ucb.mabschedule.mabschedule.api.AppointmentApi.getAppointmentForPatient(AppointmentApi.java:123)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:479)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:340)
+	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:82)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:128)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter.doFilterInternal(BearerTokenAuthenticationFilter.java:145)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:117)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+2023-11-26 09:37:25.668-0400 [http-nio-8013-exec-4]  INFO [mab-schedule,65634a15b2498e933002bde217c8ef15,01522b8bbf6cdd60] 5784 --- [b.e.u.m.mabschedule.api.AppointmentApi  ] : getAppointmentForPatient
+2023-11-26 09:37:25.669-0400 [http-nio-8013-exec-4]  INFO [mab-schedule,65634a15b2498e933002bde217c8ef15,01522b8bbf6cdd60] 5784 --- [b.e.u.m.mabschedule.bl.AppointmentBl    ] : Initializing getAppointmentForPacient
+2023-11-26 09:37:30.671-0400 [http-nio-8013-exec-4]  WARN [mab-schedule,65634a15b2498e933002bde217c8ef15,01522b8bbf6cdd60] 5784 --- [com.zaxxer.hikari.pool.PoolBase         ] : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@7fe394f3 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2023-11-26 09:37:35.675-0400 [http-nio-8013-exec-4]  WARN [mab-schedule,65634a15b2498e933002bde217c8ef15,01522b8bbf6cdd60] 5784 --- [com.zaxxer.hikari.pool.PoolBase         ] : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@3ede9ec8 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2023-11-26 09:37:40.679-0400 [http-nio-8013-exec-4]  WARN [mab-schedule,65634a15b2498e933002bde217c8ef15,01522b8bbf6cdd60] 5784 --- [com.zaxxer.hikari.pool.PoolBase         ] : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@f2a8186 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2023-11-26 09:37:45.683-0400 [http-nio-8013-exec-4]  WARN [mab-schedule,65634a15b2498e933002bde217c8ef15,01522b8bbf6cdd60] 5784 --- [com.zaxxer.hikari.pool.PoolBase         ] : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@5ef16187 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2023-11-26 09:37:47.027-0400 [http-nio-8013-exec-4]  INFO [mab-schedule,65634a15b2498e933002bde217c8ef15,01522b8bbf6cdd60] 5784 --- [b.e.u.m.mabschedule.api.AppointmentApi  ] : medicalAppointmentDto: []
+2023-11-26 09:38:46.933-0400 [AsyncResolver-bootstrap-executor-0]  INFO [mab-schedule,,] 5784 --- [c.n.d.s.r.aws.ConfigClusterResolver     ] : Resolving eureka endpoints via configuration
+2023-11-26 09:39:18.221-0400 [http-nio-8013-exec-7]  INFO [mab-schedule,65634a864470fdeb55727d474d55a38c,bb7f442e6092dec5] 5784 --- [b.e.u.m.mabschedule.api.AppointmentApi  ] : getAppointmentForPatient
+2023-11-26 09:39:18.221-0400 [http-nio-8013-exec-7]  INFO [mab-schedule,65634a864470fdeb55727d474d55a38c,bb7f442e6092dec5] 5784 --- [b.e.u.m.mabschedule.bl.AppointmentBl    ] : Initializing getAppointmentForPacient
+2023-11-26 09:39:19.864-0400 [http-nio-8013-exec-7]  INFO [mab-schedule,65634a864470fdeb55727d474d55a38c,bb7f442e6092dec5] 5784 --- [b.e.u.m.mabschedule.api.AppointmentApi  ] : medicalAppointmentDto: [bo.edu.ucb.mabschedule.mabschedule.dto.MedicalAppointmentPlaceTimeDto@254e2a14, bo.edu.ucb.mabschedule.mabschedule.dto.MedicalAppointmentPlaceTimeDto@41d30fa1]
+2023-11-26 09:43:46.935-0400 [AsyncResolver-bootstrap-executor-0]  INFO [mab-schedule,,] 5784 --- [c.n.d.s.r.aws.ConfigClusterResolver     ] : Resolving eureka endpoints via configuration
+2023-11-26 09:48:46.935-0400 [AsyncResolver-bootstrap-executor-0]  INFO [mab-schedule,,] 5784 --- [c.n.d.s.r.aws.ConfigClusterResolver     ] : Resolving eureka endpoints via configuration
+2023-11-26 09:53:46.937-0400 [AsyncResolver-bootstrap-executor-0]  INFO [mab-schedule,,] 5784 --- [c.n.d.s.r.aws.ConfigClusterResolver     ] : Resolving eureka endpoints via configuration
+2023-11-26 09:58:46.939-0400 [AsyncResolver-bootstrap-executor-0]  INFO [mab-schedule,,] 5784 --- [c.n.d.s.r.aws.ConfigClusterResolver     ] : Resolving eureka endpoints via configuration
+2023-11-26 10:03:46.940-0400 [AsyncResolver-bootstrap-executor-0]  INFO [mab-schedule,,] 5784 --- [c.n.d.s.r.aws.ConfigClusterResolver     ] : Resolving eureka endpoints via configuration
